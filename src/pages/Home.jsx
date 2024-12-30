@@ -5,10 +5,14 @@ import heroBanner from "../assets/images/home-hero-banner.jpg";
 import champion from "../assets/images/champion.jpg";
 import designed from "../assets/images/designed.jpg";
 import opportunity from "../assets/images/opportunity.jpg";
+import downArrow from "../assets/images/down-arrow.svg";
 import miami from "../assets/images/miami.jpg";
+import aventura from "../assets/images/aventura.jpg";
+import marquis from "../assets/images/marquis.jpg";
 import team from "../assets/images/team.jpg";
 import teamProfile from "../assets/images/team-profile.jpg";
 import contact from "../assets/images/contact.jpg";
+import rightArrow from "../assets/images/right-arrow.svg";
 import boutiqueDesign from "../assets/images/boutique-design.jpg";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import axios from 'axios';
@@ -194,24 +198,24 @@ const Home = () => {
             <div className="image-grid-section image-grid-odd pt-100 pb-150">
                 <div className="container">
                     <div className="header-block">
-                        <h2 className="mb-0">the source of our experience</h2>
+                        <h2 className="mb-0">the source of our experience <img width="" height="" src={downArrow} alt="" /></h2>
                     </div>
-                    <div className="image-grid-wrapper d-grid">
+                    <div className="image-grid-wrapper d-grid align-items-start">
                         <div className="image-block image-block-left overlay bottom-overlay position-relative">
                             <img width="" height="" src={miami} alt="" />
                             <div className="summary-block color-light position-absolute">
                                 <h2>Strategic support for the Ritz Carlton Residences Miami</h2>
                             </div>
                         </div>
-                        <div className="images-block">
+                        <div className="images-block d-grid">
                             <div className="image-block image-block-1">
-                                <img width="" height="" src={boutiqueDesign} alt="" />
+                                <img width="" height="" src={aventura} alt="" />
                                 <div className="summary-block">
                                     <h3>Lifestyle design for the Marina Lofts in Aventura</h3>
                                 </div>
                             </div>
                             <div className="image-block image-block-2">
-                                <img width="" height="" src={boutiqueDesign} alt="" />
+                                <img width="" height="" src={marquis} alt="" />
                                 <div className="summary-block">
                                     <h3>Breaking ground with the Marquis</h3>
                                 </div>
@@ -224,7 +228,7 @@ const Home = () => {
             <div className="team-section pb-100">
                 <div className="container">
                     <div className="header-block center pb-100">
-                        <h2>Our Team</h2>
+                        <h2>Our team</h2>
                     </div>
                     <div className="team-wrapper d-grid align-items-center">                        
                         <div className="image-block overlay bottom-overlay position-relative">
@@ -242,7 +246,7 @@ const Home = () => {
                                 </div>
                                 <div className="summary-block">
                                     <h4>Andy Ashwal</h4>
-                                    <div className="position-block uppercase">Investment Committee Advisor</div>
+                                    <div className="position-block">Investment Committee Advisor</div>
                                 </div>
                             </div>
                             <div className="team-item d-flex align-items-center">
@@ -251,7 +255,7 @@ const Home = () => {
                                 </div>
                                 <div className="summary-block">
                                     <h4>Andy Ashwal</h4>
-                                    <div className="position-block uppercase">Investment Committee Advisor</div>
+                                    <div className="position-block">Investment Committee Advisor</div>
                                 </div>
                             </div>
                             <div className="team-item d-flex align-items-center">
@@ -260,7 +264,7 @@ const Home = () => {
                                 </div>
                                 <div className="summary-block">
                                     <h4>Andy Ashwal</h4>
-                                    <div className="position-block uppercase">Investment Committee Advisor</div>
+                                    <div className="position-block">Investment Committee Advisor</div>
                                 </div>
                             </div>
                             <div className="team-item d-flex align-items-center">
@@ -269,7 +273,7 @@ const Home = () => {
                                 </div>
                                 <div className="summary-block">
                                     <h4>Andy Ashwal</h4>
-                                    <div className="position-block uppercase">Investment Committee Advisor</div>
+                                    <div className="position-block">Investment Committee Advisor</div>
                                 </div>
                             </div>
                             <div className="team-item d-flex align-items-center">
@@ -278,7 +282,7 @@ const Home = () => {
                                 </div>
                                 <div className="summary-block">
                                     <h4>Andy Ashwal</h4>
-                                    <div className="position-block uppercase">Investment Committee Advisor</div>
+                                    <div className="position-block">Investment Committee Advisor</div>
                                 </div>
                             </div>
                             <div className="team-item d-flex align-items-center">
@@ -287,7 +291,7 @@ const Home = () => {
                                 </div>
                                 <div className="summary-block">
                                     <h4>Andy Ashwal</h4>
-                                    <div className="position-block uppercase">Investment Committee Advisor</div>
+                                    <div className="position-block">Investment Committee Advisor</div>
                                 </div>
                             </div>
                         </div>
@@ -342,7 +346,7 @@ const Home = () => {
                                 </div>
                                 <div className="submit-field end">
                                     {isMailSent && (<><p style={{ color: "#fff" }}>Message Sent!</p></>)}
-                                    <button type="submit" className='submit-button' disabled={isLoading}>send</button>
+                                    <button type="submit" className='submit-button d-inline-flex justify-content-end align-items-center' disabled={isLoading}>send <img width="" height="" src={rightArrow} alt="" /></button>
                                 </div>
                             </form>
                         </div>

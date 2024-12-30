@@ -1,22 +1,30 @@
 *{
     box-sizing: border-box;
 }
+:root{
+    --body-font-family: 'Lato';
+    --heading-font-family: 'Helvetica Neue';
+    --font-size-58: 58px;    
+    --color-gray: #A7A39C;
+}
 body{
     margin: 0;
     padding: 0;
     background: #EDEBE8;
+    font-family: var(--body-font-family);
     font-size: 14px;
     line-height: 28px;
     color: #000;
+    font-weight: 300;
 }
-:root{
-    --font-size-58: 58px;    
-}
+
 
 /*---- Headings ----*/
 h1, h2, h3, h4, h5, h6{
     margin: 0 0 20px;
     padding: 0;
+    font-family: var(--heading-font-family);
+    font-weight: 400;
 }
 h1{
     font-size: var(--font-size-58);
@@ -175,6 +183,9 @@ img{
     display: flex;
     flex-wrap: wrap;
 }
+.d-inline-flex{
+    display: inline-flex;
+}
 .flex-column{
     flex-direction: column;
 }
@@ -189,6 +200,9 @@ img{
 }
 .justify-content-end{
     justify-content: flex-end;
+}
+.align-items-start{
+    align-items: flex-start;
 }
 .align-items-center{
     align-items: center;
@@ -207,8 +221,7 @@ img{
 .overlay:after{
     width: 100%;
     height: 50%;
-    display: block;
-    content: "";
+    display: block;    
     position: absolute;
     left: 0;
     pointer-events: none;
@@ -217,14 +230,17 @@ img{
 .top-bottom-overlay:before{    
     background-image: linear-gradient(rgb(0,0,0,0.5) 0%, transparent 100%);
     top: 0;
+    content: "";
 }
 .top-bottom-overlay:after{
     background-image: linear-gradient(transparent 0%, rgb(0,0,0,1) 100%);    
     bottom: 0;
+    content: "";
 }
 .bottom-overlay:after{
     background-image: linear-gradient(transparent 0%, rgb(0,0,0,1) 100%);    
-    bottom: 0;    
+    bottom: 0;
+    content: "";  
 }
 
 /*---- Blocks ----*/
@@ -232,8 +248,9 @@ img{
     width: 100%;
 }
 .image-banner-section .heading-block{
+    font-family: var(--heading-font-family);
     font-size: var(--font-size-58);
-    list-style: 65px;
+    line-height: 65px;    
 }
 
 /*---- Site Header ----*/
@@ -273,6 +290,10 @@ img{
     bottom: 60px;
     left: 60px;
 }
+.image-grid-odd h2 img{
+    margin: 0 0 0 12px;
+    transform: translateY(-4px);
+}
 .image-grid-odd .image-grid-wrapper{
     grid-template-columns: 57% auto;
 }
@@ -285,8 +306,17 @@ img{
     top: unset;
     bottom: 0;
 }
+.image-grid-odd .images-block{
+    row-gap: 30px;
+}
+.image-grid-odd .images-block .summary-block{
+    width: calc(100% - 30px);
+}
+.image-grid-odd h3{
+    margin-top: 20px;
+}
 .image-grid-section .overlay:after{
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 /*---- Slider Section ----*/
@@ -298,11 +328,17 @@ img{
 .opportunities .summary-block{
     padding-top: 60px;
 }
+.opportunities h3{
+    color: var(--color-gray);
+}
 
 /*---- Team Section ----*/
 .team-wrapper{
     grid-template-columns: 60% auto;
     column-gap: 60px;
+}
+.team-wrapper h3{
+    margin: 0 0 10px;
 }
 .team-wrapper .image-block .summary-block{
     max-width: 80%;
@@ -322,12 +358,24 @@ img{
     overflow: hidden;
 }
 .team-item h4{
-    margin: 0 0 5px;
+    margin: 0 0 2px;
+}
+.team-wrapper .position-block{
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.team-item .position-block{
+    font-size: 11px;    
 }
 
 /*---- Contact Section ----*/
 .contact-section{
     border-top: 1px solid rgb(0,0,0,0.2);
+}
+.contact-section h3{
+    color: var(--color-gray);
 }
 .contact-wrapper{
     grid-template-columns: auto 55%;
@@ -335,6 +383,12 @@ img{
 }
 .contact-section .summary-block{
     padding: 80px;
+}
+.contact-section li{
+    margin: 0 0 5px;
+}
+.contact-section .overlay:after{
+    opacity: 0.5;
 }
 
 /*---- Input ----*/
@@ -347,7 +401,7 @@ img{
     height: 50px;
     background: none;
     border: none;
-    border-bottom: 1px solid rgb(0,0,0,0.5);
+    border-bottom: 1px solid rgb(0,0,0,0.2);
     font-family: var(--body-font-family);
     font-size: 16px;
     color: #000;
@@ -360,7 +414,7 @@ img{
 .form-field textarea{
     height: 50px;    
 }
-.submit-field .submit-button{  
+.submit-field .submit-button{
     height: 40px;    
     background: none;
     border: none;    
@@ -368,6 +422,10 @@ img{
     font-size: 28px;
     color: #000;    
     cursor: pointer;
+    column-gap: 15px;
+}
+.submit-field .submit-button img{
+    transform: translateY(3px);
 }
 ::-webkit-input-placeholder{
     color: #000;
@@ -395,5 +453,6 @@ img{
 }
 .site-footer li a {
     font-size: 12px;
-    letter-spacing: 1px;
+    font-weight: 400;
+    letter-spacing: 1px;    
 }
