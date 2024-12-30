@@ -1,0 +1,399 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: #EDEBE8;
+    font-size: 14px;
+    line-height: 28px;
+    color: #000;
+}
+:root{
+    --font-size-58: 58px;    
+}
+
+/*---- Headings ----*/
+h1, h2, h3, h4, h5, h6{
+    margin: 0 0 20px;
+    padding: 0;
+}
+h1{
+    font-size: var(--font-size-58);
+    line-height: 65px;
+}
+h2{
+    font-size: 38px;
+    line-height: 45px;
+}
+h3{
+    font-size: 28px;
+    line-height: 35px;
+}
+h4{
+    font-size: 22px;
+    line-height: 25px;
+}
+
+/*---- Default ----*/
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
+p{
+    margin: 0 0 30px;
+}
+img{
+    vertical-align: bottom;
+}
+
+/*---- Common ----*/
+.w-100{
+    width: 100%;
+}
+.w-50{
+    width: 50%;
+}
+.h-100{
+    height: 100%;
+}
+.full-screen{
+    height: 100vh;
+}
+.cover{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/*---- Color ----*/
+.color-light,
+.color-light a{
+    color: #fff;
+}
+
+/*---- Text ----*/
+.center{
+    text-align: center;
+}
+.end{
+    text-align: right;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+
+/*---- Position ----*/
+.position-relative{
+    position: relative;    
+}
+.position-absolute{
+    position: absolute;
+    z-index: 2;
+}
+.position-fixed{
+    position: fixed;
+}
+.top-0{
+    top: 0;
+}
+.bottom-0{
+    bottom: 0;
+}
+
+/*---- Margin ----*/
+.margin-start-auto{
+    margin-left: auto;
+}
+.m-auto{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*---- Layout ----*/
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*---- Padding ----*/
+.px-100{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.py-150{
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+.py-120{
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+.py-100{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.py-50{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.py-50{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.pt-100{
+    padding-top: 100px;
+}
+.pt-50{
+    padding-top: 50px;
+}
+.pt-30{
+    padding-top: 30px;
+}
+.pb-150{
+    padding-bottom: 150px;
+}
+.pb-100{
+    padding-bottom: 100px;
+}
+.pb-50{
+    padding-bottom: 50px;
+}
+.pb-20{
+    padding-bottom: 20px;
+}
+
+/*---- Flexbox ----*/
+.d-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-column{
+    flex-direction: column;
+}
+.justify-content-start{
+    justify-content: flex-start;
+}
+.justify-content-between{
+    justify-content: space-between;
+}
+.justify-content-center{
+    justify-content: center;
+}
+.justify-content-end{
+    justify-content: flex-end;
+}
+.align-items-center{
+    align-items: center;
+}
+.align-items-end{
+    align-items: flex-end;
+}
+
+/*---- Grid ----*/
+.d-grid{
+    display: grid;
+}
+
+/*---- Overlay ----*/
+.overlay:before,
+.overlay:after{
+    width: 100%;
+    height: 50%;
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+.top-bottom-overlay:before{    
+    background-image: linear-gradient(rgb(0,0,0,0.5) 0%, transparent 100%);
+    top: 0;
+}
+.top-bottom-overlay:after{
+    background-image: linear-gradient(transparent 0%, rgb(0,0,0,1) 100%);    
+    bottom: 0;
+}
+.bottom-overlay:after{
+    background-image: linear-gradient(transparent 0%, rgb(0,0,0,1) 100%);    
+    bottom: 0;    
+}
+
+/*---- Blocks ----*/
+.image-block img{
+    width: 100%;
+}
+.image-banner-section .heading-block{
+    font-size: var(--font-size-58);
+    list-style: 65px;
+}
+
+/*---- Site Header ----*/
+.site-header{
+    z-index: 99;
+}
+.site-nav ul{
+    column-gap: 40px;
+}
+.site-nav li a{
+    font-size: 14px;    
+}
+
+/*---- Hero Section ----*/
+.hero-section .summary-block{
+    width: calc(100% - 50px);
+    font-size: 28px;
+    line-height: 35px;
+    padding: 50px;
+    bottom: 20px;
+    left: 0; 
+}
+
+/*---- Image Grid Section ----*/
+.image-grid-section h2{
+    margin: 0;
+}
+.image-grid-section .image-grid-wrapper{
+    grid-template-columns: auto 57%;
+    column-gap: 50px;
+}
+.image-grid-section .image-block-left .summary-block{
+    top: 100px;
+    left: -50px;
+}
+.image-grid-section .image-block-right .summary-block{
+    bottom: 60px;
+    left: 60px;
+}
+.image-grid-odd .image-grid-wrapper{
+    grid-template-columns: 57% auto;
+}
+.image-grid-odd .image-block-left{
+    margin-top: 60px;
+}
+.image-grid-odd .image-block-left .summary-block{
+    padding: 60px;
+    left: 0;
+    top: unset;
+    bottom: 0;
+}
+.image-grid-section .overlay:after{
+    opacity: 0.8;
+}
+
+/*---- Slider Section ----*/
+.slider-section .header-block{
+    max-width: 500px;
+}
+
+/*---- Opportunties Section ----*/
+.opportunities .summary-block{
+    padding-top: 60px;
+}
+
+/*---- Team Section ----*/
+.team-wrapper{
+    grid-template-columns: 60% auto;
+    column-gap: 60px;
+}
+.team-wrapper .image-block .summary-block{
+    max-width: 80%;
+    padding: 60px;    
+}
+.team-item{
+    padding: 0 0 40px;
+    column-gap: 25px;
+}
+.team-item:last-child{
+    padding: 0;
+}
+.team-item .image-block{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.team-item h4{
+    margin: 0 0 5px;
+}
+
+/*---- Contact Section ----*/
+.contact-section{
+    border-top: 1px solid rgb(0,0,0,0.2);
+}
+.contact-wrapper{
+    grid-template-columns: auto 55%;
+    column-gap: 120px;
+}
+.contact-section .summary-block{
+    padding: 80px;
+}
+
+/*---- Input ----*/
+.form-field{
+    padding: 0 0 35px;
+}
+.form-field input,
+.form-field textarea{
+    width: 100%;
+    height: 50px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgb(0,0,0,0.5);
+    font-family: var(--body-font-family);
+    font-size: 16px;
+    color: #000;
+}
+.form-field input:focus,
+.form-field textarea:focus{
+    box-shadow: none;
+    outline: none;
+}
+.form-field textarea{
+    height: 50px;    
+}
+.submit-field .submit-button{  
+    height: 40px;    
+    background: none;
+    border: none;    
+    font-family: var(--body-font-family);
+    font-size: 28px;
+    color: #000;    
+    cursor: pointer;
+}
+::-webkit-input-placeholder{
+    color: #000;
+    opacity: 0.4;
+}
+::-moz-placeholder{
+    color: #000;
+    opacity: 0.4;
+}
+:-ms-input-placeholder{
+    color: #000;
+    opacity: 0.4;
+}
+:-moz-placeholder{
+    color: #000;
+    opacity: 0.4;
+}
+
+/*---- Footer ----*/
+.site-footer{
+    border-top: 1px solid rgb(0,0,0,0.2);  
+}
+.site-footer li:not(:last-child){
+    margin: 0 0 15px;
+}
+.site-footer li a {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
