@@ -166,10 +166,9 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
             
-            <div className="image-banner-section d-flex justify-content-center">                    
-                <div className="image-block">
+            <div className="image-banner-section d-flex justify-content-center align-items-center">
+                <div className="image-block w-100">
                     <picture className="w-100 full-screen">
                         <source media="(max-width:1023px)" srcset={designedMobile}/>
                         <img className="h-100 cover" src={designed} alt="" />
