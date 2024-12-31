@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Layout from "./Layout";
 import heroBanner from "../assets/images/home-hero-banner.jpg";
@@ -132,7 +132,6 @@ const Home = () => {
         }
     };
 
-
     return (
 
         <Layout>
@@ -149,7 +148,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-grid-section m-pt-50 pb-50">
+            <div className="image-grid-section m-pt-50 pb-100">
                 <div className="container">                    
                     <div className="image-grid-wrapper d-grid align-items-end">
                         <div className="image-block image-block-left position-relative">
@@ -168,23 +167,24 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-banner-section d-flex justify-content-center align-items-center">
-                <div className="image-block w-100">
-                    <picture>
+            
+            <div className="image-banner-section d-flex justify-content-center">                    
+                <div className="image-block">
+                    <picture className="w-100 full-screen">
                         <source media="(max-width:1023px)" srcset={designedMobile}/>
-                        <img src={designed} alt="" />
-                    </picture>                    
+                        <img className="h-100 cover" src={designed} alt="" />
+                    </picture>
                 </div>
-                <div className="summary-block position-absolute">
+                <div className="summary-block full-screen d-flex justify-content-center align-items-center position-absolute">
                     <div className="heading-block">life, well designed.</div>
-                </div>
+                </div>               
             </div>
 
             <div id="services" className="slider-section opportunities py-120 m-py-80">
                 <div className="container">
                     <div className="header-block center m-auto pb-50">
-                        <h2>Creating new opportunities in south Florida</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h2 data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000">Creating new opportunities in south Florida</h2>
+                        <p data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
                 <Swiper                    

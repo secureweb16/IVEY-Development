@@ -1,3 +1,4 @@
+
 *{
     box-sizing: border-box;
 }
@@ -17,6 +18,7 @@ body{
     line-height: 28px;
     color: #000;
     font-weight: 300;
+    overflow-y: scroll;
 }
 
 /*---- Headings ----*/
@@ -301,6 +303,11 @@ img{
     left: 0; 
 }
 
+/*---- Image Banner Section ----*/
+
+
+
+
 /*---- Image Grid Section ----*/
 .image-grid-section h2{
     margin: 0;
@@ -490,6 +497,29 @@ img{
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 1px;    
+}
+
+
+
+
+/*---- Animation ----*/
+.aos-animate{
+    animation: blurFadeIn 2s;    
+}
+@keyframes blurFadeIn{	    
+    0%{
+        opacity: 0;
+        filter: blur(30px);
+    }
+    50%{
+        opacity: 0;
+        filter: blur(15px);
+    }
+	100%{        
+        opacity: 1;
+        filter: blur(0px);
+    }
+    
 }
 
 /*---- Responsive ----*/
@@ -771,3 +801,22 @@ img{
     }
 
 }
+
+
+
+.anm-section{
+    height: 1200px;
+    padding: 0 0 100px;
+}
+
+.box {
+    position: relative; /* Required for proper pinning */
+    width: 200px;
+    height: 200px;
+    background-color: red;
+  }
+
+
+  .parent-container {
+    height: 4000px; /* Ensure enough scrolling space */
+  }
