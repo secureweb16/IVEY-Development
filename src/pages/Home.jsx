@@ -20,6 +20,80 @@ import config from "../config"
 
 const Home = () => {
 
+
+
+    class Tabs extends React.Component{
+        state ={
+          activeTab: this.props.children[0].props.teamHeading
+        }
+        changeTab = (tab) => {
+      
+          this.setState({ activeTab: tab });
+        };
+        render() {
+            let content;
+            // Construct buttons array and determine active content
+            const buttons = React.Children.map(this.props.children, (child) => {
+              if (child.props.teamHeading === this.state.activeTab) {
+                content = child.props.children;
+              }
+              return {
+                teamProfile: child.props.teamProfile,
+                teamHeading: child.props.teamHeading,
+                teamPosition: child.props.teamPosition,
+              };
+            });
+            return(
+            <div className="team-wrapper d-grid align-items-center"> 
+        <TabButtons
+          activeTab={this.state.activeTab}
+          buttons={buttons}
+          changeTab={this.changeTab}
+        />
+        <div className="image-block team-main-image overlay bottom-overlay position-relative">{content}</div>
+      </div>
+            );
+        }
+    }
+  
+    const TabButtons = ({buttons, changeTab, activeTab}) =>{     
+        return(
+            <div className="team-items">                
+                {buttons.map((button) => {
+                    const { teamProfile, teamHeading, teamPosition } = button; // Destructure properties
+                    return (
+                        
+                    <button
+                        key={teamHeading}
+                        className=    {teamHeading === activeTab ? 'active' : ''}
+                        onClick={() => changeTab(teamHeading)}
+                    >
+                        <div className="team-item d-flex align-items-center">
+
+                        <div className="image-block">
+                            <img src={teamProfile} alt="" className="button-image" />
+                        </div>
+                        <div className="summary-block">
+                        <h4>{teamHeading}</h4>
+                        <div className="position-block">{teamPosition}</div>
+                        </div>
+                    </div>
+                    </button>
+                    );
+                })}
+                
+                </div>
+        )
+    }
+      
+    const Tab = props =>{
+        return(
+            <React.Fragment>
+                {props.children}
+            </React.Fragment>
+        )
+    }
+
     const [isMailSent, setIsMailSent] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -114,15 +188,24 @@ const Home = () => {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
-                <Swiper
-                    spaceBetween={10}
+                <Swiper                    
                     loop={true}
-                    slidesPerView={4}
+                    slidesPerView={1}
                     breakpoints={{
-                        993:{
+                        481:{
+                            loop: false,
+                            slidesPerView: 2,
+                            spaceBetween: 15,
+                        },
+                        767:{
+                            loop: false,
+                            slidesPerView: 3,
+                            spaceBetween: 15,
+                        },
+                        1367:{
                             loop: false,
                             slidesPerView: 4,
-                            spaceBetween: 30,
+                            spaceBetween: 15,
                         }
                     }}
                 >
@@ -226,76 +309,63 @@ const Home = () => {
             </div>
 
             <div className="team-section pb-100">
+                
+               
                 <div className="container">
                     <div className="header-block center pb-100">
                         <h2>Our team</h2>
                     </div>
-                    <div className="team-wrapper d-grid align-items-center">                        
-                        <div className="image-block overlay bottom-overlay position-relative">
+
+                    <Tabs>
+                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20">President & Chief Development Officer</div>
+                                <div className="position-block uppercase pb-20">President & Chief Development Officer 1</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
-                        </div>  
-                        <div className="team-items">
-                            <div className="team-item d-flex align-items-center">
-                                <div className="image-block">
-                                    <img width="" height="" src={teamProfile} alt="" />
-                                </div>
-                                <div className="summary-block">
-                                    <h4>Andy Ashwal</h4>
-                                    <div className="position-block">Investment Committee Advisor</div>
-                                </div>
+                        </Tab>
+                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 2" teamPosition="Investment Committee Advisor">
+                            <img width="" height="" src={team} alt="" />
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                                <h3>Kirk Ivy</h3>
+                                <div className="position-block uppercase pb-20">President & Chief Development Officer 2</div>
+                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
-                            <div className="team-item d-flex align-items-center">
-                                <div className="image-block">
-                                    <img width="" height="" src={teamProfile} alt="" />
-                                </div>
-                                <div className="summary-block">
-                                    <h4>Andy Ashwal</h4>
-                                    <div className="position-block">Investment Committee Advisor</div>
-                                </div>
+                        </Tab>
+                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 3" teamPosition="Investment Committee Advisor">
+                            <img width="" height="" src={team} alt="" />
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                                <h3>Kirk Ivy</h3>
+                                <div className="position-block uppercase pb-20">President & Chief Development Officer 3</div>
+                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
-                            <div className="team-item d-flex align-items-center">
-                                <div className="image-block">
-                                    <img width="" height="" src={teamProfile} alt="" />
-                                </div>
-                                <div className="summary-block">
-                                    <h4>Andy Ashwal</h4>
-                                    <div className="position-block">Investment Committee Advisor</div>
-                                </div>
+                        </Tab>
+                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 4" teamPosition="Investment Committee Advisor">
+                            <img width="" height="" src={team} alt="" />
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                                <h3>Kirk Ivy</h3>
+                                <div className="position-block uppercase pb-20">President & Chief Development Officer 4</div>
+                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
-                            <div className="team-item d-flex align-items-center">
-                                <div className="image-block">
-                                    <img width="" height="" src={teamProfile} alt="" />
-                                </div>
-                                <div className="summary-block">
-                                    <h4>Andy Ashwal</h4>
-                                    <div className="position-block">Investment Committee Advisor</div>
-                                </div>
+                        </Tab>
+                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 5" teamPosition="Investment Committee Advisor">
+                            <img width="" height="" src={team} alt="" />
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                                <h3>Kirk Ivy</h3>
+                                <div className="position-block uppercase pb-20">President & Chief Development Officer 5</div>
+                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
-                            <div className="team-item d-flex align-items-center">
-                                <div className="image-block">
-                                    <img width="" height="" src={teamProfile} alt="" />
-                                </div>
-                                <div className="summary-block">
-                                    <h4>Andy Ashwal</h4>
-                                    <div className="position-block">Investment Committee Advisor</div>
-                                </div>
+                        </Tab>
+                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 6" teamPosition="Investment Committee Advisor">
+                            <img width="" height="" src={team} alt="" />
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                                <h3>Kirk Ivy</h3>
+                                <div className="position-block uppercase pb-20">President & Chief Development Officer 6</div>
+                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
-                            <div className="team-item d-flex align-items-center">
-                                <div className="image-block">
-                                    <img width="" height="" src={teamProfile} alt="" />
-                                </div>
-                                <div className="summary-block">
-                                    <h4>Andy Ashwal</h4>
-                                    <div className="position-block">Investment Committee Advisor</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </Tab>                       
+                    </Tabs>                    
                 </div>
             </div>
 

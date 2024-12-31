@@ -261,7 +261,9 @@ img{
     column-gap: 40px;
 }
 .site-nav li a{
-    font-size: 14px;    
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
 }
 
 /*---- Hero Section ----*/
@@ -335,6 +337,7 @@ img{
 /*---- Team Section ----*/
 .team-wrapper{
     grid-template-columns: 60% auto;
+    grid-template-areas: 'teamMain teamItems'; 
     column-gap: 60px;
 }
 .team-wrapper h3{
@@ -344,12 +347,23 @@ img{
     max-width: 80%;
     padding: 60px;    
 }
-.team-item{
-    padding: 0 0 40px;
-    column-gap: 25px;
+.team-main-image{
+    grid-area: teamMain;
 }
-.team-item:last-child{
-    padding: 0;
+.team-item{    
+    column-gap: 25px;
+    grid-area: teamItems;
+}
+.team-items button{
+    width: 100%;
+    margin: 0 0 30px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+}
+.team-items button:last-child{
+    margin: 0;
 }
 .team-item .image-block{
     width: 75px;
@@ -358,7 +372,7 @@ img{
     overflow: hidden;
 }
 .team-item h4{
-    margin: 0 0 2px;
+    margin: 0 0 8px;
 }
 .team-wrapper .position-block{
     font-size: 12px;
@@ -374,7 +388,7 @@ img{
 .contact-section{
     border-top: 1px solid rgb(0,0,0,0.2);
 }
-.contact-section h3{
+.contact-section .form-block h3{
     color: var(--color-gray);
 }
 .contact-wrapper{
@@ -412,7 +426,7 @@ img{
     outline: none;
 }
 .form-field textarea{
-    height: 50px;    
+    padding: 12px 0 0;    
 }
 .submit-field .submit-button{
     height: 40px;    
