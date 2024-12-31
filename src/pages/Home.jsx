@@ -20,71 +20,66 @@ import config from "../config"
 
 const Home = () => {
 
-
-
     class Tabs extends React.Component{
-        state ={
-          activeTab: this.props.children[0].props.teamHeading
-        }
-        changeTab = (tab) => {
-      
-          this.setState({ activeTab: tab });
+        state = {
+            activeTab: this.props.children[0].props.teamHeading,
         };
-        render() {
+      
+        changeTab = (tab) => {
+            this.setState({ activeTab: tab });
+        };
+      
+        render(){
             let content;
-            // Construct buttons array and determine active content
             const buttons = React.Children.map(this.props.children, (child) => {
-              if (child.props.teamHeading === this.state.activeTab) {
-                content = child.props.children;
-              }
-              return {
-                teamProfile: child.props.teamProfile,
-                teamHeading: child.props.teamHeading,
-                teamPosition: child.props.teamPosition,
-              };
-            });
-            return(
-            <div className="team-wrapper d-grid align-items-center"> 
-        <TabButtons
-          activeTab={this.state.activeTab}
-          buttons={buttons}
-          changeTab={this.changeTab}
-        />
-        <div className="image-block team-main-image overlay bottom-overlay position-relative">{content}</div>
-      </div>
+                if (child.props.teamHeading === this.state.activeTab) {
+                    content = child.props.children;
+                }
+                return {
+                    teamProfile: child.props.teamProfile,
+                    teamHeading: child.props.teamHeading,
+                    teamPosition: child.props.teamPosition,
+                };
+            });      
+            return (
+                <div className="team-wrapper d-grid align-items-center">
+                    {/* Reorder JSX to display the image block first */}
+                    <div className="image-block overlay bottom-overlay position-relative">{content}</div>
+                    <TabButtons activeTab={this.state.activeTab} buttons={buttons} changeTab={this.changeTab} />
+                </div>
             );
         }
     }
   
-    const TabButtons = ({buttons, changeTab, activeTab}) =>{     
-        return(
-            <div className="team-items">                
+    const TabButtons = ({ buttons, changeTab, activeTab }) => {
+        return (
+            <div className="team-items">
                 {buttons.map((button) => {
-                    const { teamProfile, teamHeading, teamPosition } = button; // Destructure properties
-                    return (
-                        
-                    <button
-                        key={teamHeading}
-                        className=    {teamHeading === activeTab ? 'active' : ''}
-                        onClick={() => changeTab(teamHeading)}
-                    >
-                        <div className="team-item d-flex align-items-center">
-
+                    const { teamProfile, teamHeading, teamPosition } = button;
+                    return(
+                        <button
+                            key={teamHeading}
+                            className={
+                            teamHeading === activeTab
+                                ? 'active team-item d-flex align-items-center'
+                                : 'team-item d-flex align-items-center'
+                            }
+                            onClick={() => changeTab(teamHeading)}
+                        >
+                        {/* Place the image block before the summary block */}
                         <div className="image-block">
                             <img src={teamProfile} alt="" className="button-image" />
                         </div>
                         <div className="summary-block">
-                        <h4>{teamHeading}</h4>
-                        <div className="position-block">{teamPosition}</div>
+                            <h4>{teamHeading}</h4>
+                            <div className="position-block">{teamPosition}</div>
                         </div>
-                    </div>
-                    </button>
-                    );
-                })}
-                
-                </div>
-        )
-    }
+                </button>
+              );
+            })}
+          </div>
+        );
+    };
       
     const Tab = props =>{
         return(
@@ -143,7 +138,7 @@ const Home = () => {
             
             <div className="hero-section full-screen">
                 <div className="banner-image d-flex justify-content-center align-items-center h-100">
-                    <div className="image-block color-light overlay bottom-overlay margin-start-auto position-relative w-50 h-100">
+                    <div className="image-block color-light overlay bottom-overlay margin-start-auto position-relative w-50 m-w-100 h-100">
                         <img className="cover" width="" height="" src={heroBanner} alt="" />
                         <div className="summary-block position-absolute">Ivey Development is a company that helps property owners with assets suitable for development. Instead of selling their properties, owners’ partner with Ivey to maximize their value.</div>
                     </div>
@@ -153,8 +148,8 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-grid-section pb-50">
-                <div className="container">
+            <div className="image-grid-section m-pt-50 pb-50">
+                <div className="container">                    
                     <div className="image-grid-wrapper d-grid align-items-end">
                         <div className="image-block image-block-left position-relative">
                             <img width="" height="" src={champion} alt="" />
@@ -181,7 +176,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="slider-section opportunities py-120">
+            <div className="slider-section opportunities py-120 m-py-80">
                 <div className="container">
                     <div className="header-block center m-auto pb-50">
                         <h2>Creating new opportunities in south Florida</h2>
@@ -189,15 +184,15 @@ const Home = () => {
                     </div>
                 </div>
                 <Swiper                    
-                    loop={true}
-                    slidesPerView={1}
+                    loop={true}                    
+                    slidesPerView={1}                    
                     breakpoints={{
-                        481:{
+                        767:{
                             loop: false,
                             slidesPerView: 2,
                             spaceBetween: 15,
                         },
-                        767:{
+                        992:{
                             loop: false,
                             slidesPerView: 3,
                             spaceBetween: 15,
@@ -278,7 +273,7 @@ const Home = () => {
                 </Swiper>
             </div>
 
-            <div className="image-grid-section image-grid-odd pt-100 pb-150">
+            <div className="image-grid-section image-grid-odd pt-100 pb-150 m-pt-0 m-pb-100">
                 <div className="container">
                     <div className="header-block">
                         <h2 className="mb-0">the source of our experience <img width="" height="" src={downArrow} alt="" /></h2>
@@ -308,20 +303,17 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="team-section pb-100">
-                
-               
+            <div className="team-section pb-100 m-pb-70">               
                 <div className="container">
-                    <div className="header-block center pb-100">
+                    <div className="header-block center pb-100 m-pb-50">
                         <h2>Our team</h2>
                     </div>
-
                     <Tabs>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20">President & Chief Development Officer 1</div>
+                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 1</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
                         </Tab>
@@ -329,7 +321,7 @@ const Home = () => {
                             <img width="" height="" src={team} alt="" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20">President & Chief Development Officer 2</div>
+                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 2</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
                         </Tab>
@@ -337,7 +329,7 @@ const Home = () => {
                             <img width="" height="" src={team} alt="" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20">President & Chief Development Officer 3</div>
+                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 3</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
                         </Tab>
@@ -345,7 +337,7 @@ const Home = () => {
                             <img width="" height="" src={team} alt="" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20">President & Chief Development Officer 4</div>
+                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 4</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
                         </Tab>
@@ -353,7 +345,7 @@ const Home = () => {
                             <img width="" height="" src={team} alt="" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20">President & Chief Development Officer 5</div>
+                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 5</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
                         </Tab>
@@ -361,7 +353,7 @@ const Home = () => {
                             <img width="" height="" src={team} alt="" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20">President & Chief Development Officer 6</div>
+                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 6</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                             </div>
                         </Tab>                       
@@ -369,11 +361,11 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="contact-section py-100">
+            <div className="contact-section py-100 m-py-70">
                 <div className="container">
                     <div className="contact-wrapper d-grid align-items-center">
                         <div className="form-block">
-                            <h3>contact us</h3>
+                            <h3 className="m-center">contact us</h3>
                             <form className="pt-30" onSubmit={handleSubmit}>
                                 <div className="form-field">
                                     <input
@@ -423,10 +415,10 @@ const Home = () => {
                         <div className="image-block color-light overlay top-bottom-overlay position-relative">
                             <img width="" height="" src={contact} alt="" />                            
                             <div className="summary-block d-flex flex-column justify-content-between position-absolute top-0 w-100 h-100">
-                                <div className="top-summary">
+                                <div className="top-summary w-100">
                                     <h2>join Ivey Developments in creating home</h2>
                                 </div>
-                                <div className="bottom-summary">
+                                <div className="bottom-summary w-100">
                                     <h3>info@iveydevelopments.com</h3>
                                     <ul>
                                         <li><Link to="tel:+1-111-1111">+1-111-1111</Link></li>
