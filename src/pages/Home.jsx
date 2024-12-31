@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import heroBanner from "../assets/images/home-hero-banner.jpg";
 import champion from "../assets/images/champion.jpg";
 import designed from "../assets/images/designed.jpg";
+import designedMobile from "../assets/images/designed-mobile.jpg";
 import opportunity from "../assets/images/opportunity.jpg";
 import downArrow from "../assets/images/down-arrow.svg";
 import miami from "../assets/images/miami.jpg";
@@ -136,7 +137,7 @@ const Home = () => {
 
         <Layout>
             
-            <div className="hero-section full-screen">
+            <div id="home" className="hero-section full-screen">
                 <div className="banner-image d-flex justify-content-center align-items-center h-100">
                     <div className="image-block color-light overlay bottom-overlay margin-start-auto position-relative w-50 m-w-100 h-100">
                         <img className="cover" width="" height="" src={heroBanner} alt="" />
@@ -169,14 +170,17 @@ const Home = () => {
 
             <div className="image-banner-section d-flex justify-content-center align-items-center">
                 <div className="image-block w-100">
-                    <img width="" height="" src={designed} alt="" />
+                    <picture>
+                        <source media="(max-width:1023px)" srcset={designedMobile}/>
+                        <img src={designed} alt="" />
+                    </picture>                    
                 </div>
                 <div className="summary-block position-absolute">
                     <div className="heading-block">life, well designed.</div>
                 </div>
             </div>
 
-            <div className="slider-section opportunities py-120 m-py-80">
+            <div id="services" className="slider-section opportunities py-120 m-py-80">
                 <div className="container">
                     <div className="header-block center m-auto pb-50">
                         <h2>Creating new opportunities in south Florida</h2>
@@ -273,7 +277,7 @@ const Home = () => {
                 </Swiper>
             </div>
 
-            <div className="image-grid-section image-grid-odd pt-100 pb-150 m-pt-0 m-pb-100">
+            <div className="image-grid-section image-grid-odd pt-100 m-pt-0">
                 <div className="container">
                     <div className="header-block">
                         <h2 className="mb-0">the source of our experience <img width="" height="" src={downArrow} alt="" /></h2>
@@ -303,7 +307,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="team-section pb-100 m-pb-70">               
+            <div id="team" className="team-section py-120 m-pb-70">               
                 <div className="container">
                     <div className="header-block center pb-100 m-pb-50">
                         <h2>Our team</h2>
@@ -361,7 +365,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="contact-section py-100 m-py-70">
+            <div id="contact" className="contact-section py-120 m-py-70">
                 <div className="container">
                     <div className="contact-wrapper d-grid align-items-center">
                         <div className="form-block">
