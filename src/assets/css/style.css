@@ -136,7 +136,7 @@ img{
 .mn-mt-40{
     margin-top: -40px;
 }
-.margin-start-auto{
+.ms-auto{
     margin-left: auto;
 }
 .m-auto{
@@ -260,11 +260,6 @@ img{
 .image-block img{
     width: 100%;
 }
-.image-banner-section .heading-block{
-    font-family: var(--heading-font-family);
-    font-size: var(--font-size-58);
-    line-height: 65px;    
-}
 
 /*---- Site Header ----*/
 .site-header{    
@@ -308,6 +303,39 @@ img{
     padding: 50px;
     bottom: 20px;
     left: 0; 
+}
+
+/*---- Image Banner Section ----*/
+.image-banner-section{
+    height: 240vh;
+}
+.image-banner-section .image-block-wrapper{
+    height: calc(100vh - 128px);
+    position: sticky;
+    top: 128px;
+}
+.image-banner-section .image-block{
+    width: 40%;    
+}
+.image-banner-section .image-block picture{
+    transform-origin: center right;    
+}
+.image-banner-section .image-block img{
+    transition: transform 0.3s ease-out;
+}
+.image-banner-section .summary-block{
+    top: 50%;
+    transform: translateY(-50%);
+}
+.image-banner-section .heading-block{
+    font-family: var(--heading-font-family);
+    font-size: var(--font-size-58);
+    line-height: 65px;    
+    transition: all ease 0.2s;
+}
+.image-banner-section .heading-block-2{
+    opacity: 0;
+    transform: translateY(100px);    
 }
 
 /*---- Image Grid Section ----*/

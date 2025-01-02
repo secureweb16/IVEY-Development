@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { Link } from "react-router-dom";
 import Layout from "./Layout";
 import heroBanner from "../assets/images/home-hero-banner.jpg";
@@ -17,7 +17,13 @@ import rightArrow from "../assets/images/right-arrow.svg";
 import boutiqueDesign from "../assets/images/boutique-design.jpg";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import axios from 'axios';
-import config from "../config"
+import config from "../config";
+
+
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
 
 const Home = () => {
 
@@ -126,6 +132,39 @@ const Home = () => {
             setIsLoading(false);
         }
     };
+  
+ 
+    const imageBannerRef = useRef();
+    const headingBlock1Ref = useRef();
+    const headingBlock2Ref = useRef();
+
+    useEffect(() => {
+        const el = imageBannerRef.current;
+        gsap.to(el,  {
+            width: "100%", 
+            scrollTrigger: {
+                trigger: el,
+                start: "top bottom-=100",
+                end: "bottom+=100px",
+                scrub: true,
+                markers: true
+            }
+        });
+
+        const tl = gsap.timeline({            
+            scrollTrigger: {
+                trigger: el,
+                start: "top top-=1000", // Adjust the start point as needed
+                end: "bottom center", // Adjust the end point as needed
+                scrub: true,
+                markers: true,
+            },
+        });
+
+        tl.to(headingBlock1Ref.current, { opacity: 0, y: -100, duration: 1 }, 0)
+          .to(headingBlock2Ref.current, { opacity: 1, y:0, duration: 1 }, 0);
+
+    }, [])
 
     return (
 
@@ -133,7 +172,7 @@ const Home = () => {
             
             <div id="home" className="hero-section full-screen">
                 <div className="banner-image d-flex justify-content-center align-items-center h-100">
-                    <div className="image-block color-light overlay bottom-overlay margin-start-auto position-relative w-50 m-w-100 h-100" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+                    <div className="image-block color-light overlay bottom-overlay ms-auto position-relative w-50 m-w-100 h-100" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
                         <img className="cover" width="" height="" src={heroBanner} alt="" />
                         <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">Ivey Development is a company that helps property owners with assets suitable for development. Instead of selling their properties, owners’ partner with Ivey to maximize their value.</div>
                     </div>
@@ -160,18 +199,21 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div className="image-banner-section d-flex justify-content-center align-items-center position-relative">
-                <div className="image-block w-100">
-                    <picture className="w-100 full-screen">
-                        <source media="(max-width:1023px)" srcSet={designedMobile}/>
-                        <img className="h-100 cover" src={designed} alt="" />
-                    </picture>
+            </div>            
+
+            <div className="image-banner-section">
+                <div className="image-block-wrapper position-relative">
+                    <div className="image-block ms-auto h-100" ref={imageBannerRef}>
+                        <picture className="w-100">
+                            <source media="(max-width:1023px)" srcSet={designedMobile}/>
+                            <img className="h-100 cover" src={designed} alt="" />
+                        </picture>                        
+                    </div>
+                    <div className="summary-block d-flex justify-content-center align-items-center position-absolute w-100 h-100">
+                        <div className="heading-block heading-block-1 position-absolute" ref={headingBlock1Ref}>life, well designed.</div>
+                        <div className="heading-block heading-block-2 position-absolute" ref={headingBlock2Ref}>only verified vetted members</div>           
+                    </div>         
                 </div>
-                <div className="summary-block d-flex justify-content-center align-items-center position-absolute w-100 h-100">
-                    <div className="heading-block">life, well designed.</div>
-                </div>               
             </div>
 
             <div id="services" className="slider-section opportunities py-120 m-py-80">
@@ -407,6 +449,7 @@ const Home = () => {
         </Layout>
 
     );
+
 };
 
 export default Home;
