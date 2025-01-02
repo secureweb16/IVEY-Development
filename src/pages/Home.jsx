@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import Layout from "./Layout";
 import heroBanner from "../assets/images/home-hero-banner.jpg";
@@ -43,8 +43,7 @@ const Home = () => {
                 };
             });      
             return (
-                <div className="team-wrapper d-grid align-items-center">
-                    {/* Reorder JSX to display the image block first */}
+                <div className="team-wrapper d-grid align-items-center">               
                     <div className="image-block overlay bottom-overlay position-relative">{content}</div>
                     <TabButtons activeTab={this.state.activeTab} buttons={buttons} changeTab={this.changeTab} />
                 </div>
@@ -66,18 +65,17 @@ const Home = () => {
                                 : 'team-item d-flex align-items-center'
                             }
                             onClick={() => changeTab(teamHeading)}
-                        >
-                        {/* Place the image block before the summary block */}
-                        <div className="image-block">
-                            <img src={teamProfile} alt="" className="button-image" />
-                        </div>
-                        <div className="summary-block">
-                            <h4>{teamHeading}</h4>
-                            <div className="position-block">{teamPosition}</div>
-                        </div>
-                </button>
-              );
-            })}
+                            data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                            <div className="image-block">
+                                <img src={teamProfile} alt="" className="button-image" />
+                            </div>
+                            <div className="summary-block">
+                                <h4>{teamHeading}</h4>
+                                <div className="position-block">{teamPosition}</div>
+                            </div>
+                        </button>
+                    );
+                })}
           </div>
         );
     };
@@ -104,8 +102,7 @@ const Home = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        
+        e.preventDefault();        
         try {
             setIsLoading(true);
             const response = await axios.post(`${config.BASE_URL}/api/admin/send-email`, formData, { withCredentials: true });
@@ -119,9 +116,7 @@ const Home = () => {
                     message: '',
                 });
             }
-
             setIsLoading(false);
-
             setTimeout(() => {
                 setIsMailSent(false);
             }, 5000);
@@ -138,28 +133,28 @@ const Home = () => {
             
             <div id="home" className="hero-section full-screen">
                 <div className="banner-image d-flex justify-content-center align-items-center h-100">
-                    <div className="image-block color-light overlay bottom-overlay margin-start-auto position-relative w-50 m-w-100 h-100">
+                    <div className="image-block color-light overlay bottom-overlay margin-start-auto position-relative w-50 m-w-100 h-100" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
                         <img className="cover" width="" height="" src={heroBanner} alt="" />
-                        <div className="summary-block position-absolute">Ivey Development is a company that helps property owners with assets suitable for development. Instead of selling their properties, owners’ partner with Ivey to maximize their value.</div>
+                        <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">Ivey Development is a company that helps property owners with assets suitable for development. Instead of selling their properties, owners’ partner with Ivey to maximize their value.</div>
                     </div>
                     <div className="heading-block position-absolute">
-                        <h1>Scaling <span className="color-light">‘home’.</span></h1>
+                        <h1><span className="d-inline-block" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">Scaling</span> <span className="d-inline-block color-light" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">‘home’.</span></h1>
                     </div>
                 </div>
             </div>
 
-            <div className="image-grid-section m-pt-50 pb-100">
+            <div className="image-grid-section mn-mt-40  m-pt-50 pb-100">
                 <div className="container">                    
                     <div className="image-grid-wrapper d-grid align-items-end">
                         <div className="image-block image-block-left position-relative">
                             <img width="" height="" src={champion} alt="" />
-                            <div className="summary-block position-absolute">
+                            <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                                 <h2>We champion</h2>
                             </div>
                         </div>
                         <div className="image-block image-block-right color-light position-relative">
                             <img width="" height="" src={boutiqueDesign} alt="" />
-                            <div className="summary-block position-absolute">
+                            <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">
                                 <h2>boutique design</h2>
                             </div>
                         </div>
@@ -167,137 +162,139 @@ const Home = () => {
                 </div>
             </div>
             
-            <div className="image-banner-section d-flex justify-content-center align-items-center">
+            <div className="image-banner-section d-flex justify-content-center align-items-center position-relative">
                 <div className="image-block w-100">
                     <picture className="w-100 full-screen">
-                        <source media="(max-width:1023px)" srcset={designedMobile}/>
+                        <source media="(max-width:1023px)" srcSet={designedMobile}/>
                         <img className="h-100 cover" src={designed} alt="" />
                     </picture>
                 </div>
-                <div className="summary-block full-screen d-flex justify-content-center align-items-center position-absolute">
+                <div className="summary-block d-flex justify-content-center align-items-center position-absolute w-100 h-100">
                     <div className="heading-block">life, well designed.</div>
                 </div>               
             </div>
 
             <div id="services" className="slider-section opportunities py-120 m-py-80">
                 <div className="container">
-                    <div className="header-block center m-auto pb-50">
-                        <h2 data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000">Creating new opportunities in south Florida</h2>
-                        <p data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div className="header-block center m-auto pb-50" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                        <h2>Creating new opportunities in south Florida</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
-                <Swiper                    
-                    loop={true}                    
-                    slidesPerView={1}                    
-                    breakpoints={{
-                        767:{
-                            loop: false,
-                            slidesPerView: 2,
-                            spaceBetween: 15,
-                        },
-                        992:{
-                            loop: false,
-                            slidesPerView: 3,
-                            spaceBetween: 15,
-                        },
-                        1367:{
-                            loop: false,
-                            slidesPerView: 4,
-                            spaceBetween: 15,
-                        }
-                    }}
-                >
-                    <SwiperSlide>
-                        <div className="slider-item">
-                            <div className="image-block">
-                                <img width="" height="" src={opportunity} alt="" />
+                <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                    <Swiper                    
+                        loop={true}                    
+                        slidesPerView={1}                    
+                        breakpoints={{
+                            767:{
+                                loop: false,
+                                slidesPerView: 2,
+                                spaceBetween: 15,
+                            },
+                            992:{
+                                loop: false,
+                                slidesPerView: 3,
+                                spaceBetween: 15,
+                            },
+                            1367:{
+                                loop: false,
+                                slidesPerView: 4,
+                                spaceBetween: 15,
+                            }
+                        }}
+                    >
+                        <SwiperSlide>
+                            <div className="slider-item">
+                                <div className="image-block">
+                                    <img width="" height="" src={opportunity} alt="" />
+                                </div>
+                                <div className="summary-block">
+                                    <h3>small scale development</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
                             </div>
-                            <div className="summary-block">
-                                <h3>small scale development</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="slider-item">
+                                <div className="image-block">
+                                    <img width="" height="" src={opportunity} alt="" />
+                                </div>
+                                <div className="summary-block">
+                                    <h3>small scale development</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
                             </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="slider-item">
-                            <div className="image-block">
-                                <img width="" height="" src={opportunity} alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="slider-item">
+                                <div className="image-block">
+                                    <img width="" height="" src={opportunity} alt="" />
+                                </div>
+                                <div className="summary-block">
+                                    <h3>community planning</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
                             </div>
-                            <div className="summary-block">
-                                <h3>small scale development</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="slider-item">
+                                <div className="image-block">
+                                    <img width="" height="" src={opportunity} alt="" />
+                                </div>
+                                <div className="summary-block">
+                                    <h3>above average returns</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
                             </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="slider-item">
-                            <div className="image-block">
-                                <img width="" height="" src={opportunity} alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="slider-item">
+                                <div className="image-block">
+                                    <img width="" height="" src={opportunity} alt="" />
+                                </div>
+                                <div className="summary-block">
+                                    <h3>small scale development</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
                             </div>
-                            <div className="summary-block">
-                                <h3>community planning</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="slider-item">
+                                <div className="image-block">
+                                    <img width="" height="" src={opportunity} alt="" />
+                                </div>
+                                <div className="summary-block">
+                                    <h3>above average returns</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
                             </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="slider-item">
-                            <div className="image-block">
-                                <img width="" height="" src={opportunity} alt="" />
-                            </div>
-                            <div className="summary-block">
-                                <h3>above average returns</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="slider-item">
-                            <div className="image-block">
-                                <img width="" height="" src={opportunity} alt="" />
-                            </div>
-                            <div className="summary-block">
-                                <h3>small scale development</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="slider-item">
-                            <div className="image-block">
-                                <img width="" height="" src={opportunity} alt="" />
-                            </div>
-                            <div className="summary-block">
-                                <h3>above average returns</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                </Swiper>
+                        </SwiperSlide>
+                    </Swiper>
+                </div>
             </div>
 
             <div className="image-grid-section image-grid-odd pt-100 m-pt-0">
                 <div className="container">
-                    <div className="header-block">
+                    <div className="header-block" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                         <h2 className="mb-0">the source of our experience <img width="" height="" src={downArrow} alt="" /></h2>
                     </div>
                     <div className="image-grid-wrapper d-grid align-items-start">
                         <div className="image-block image-block-left overlay bottom-overlay position-relative">
                             <img width="" height="" src={miami} alt="" />
-                            <div className="summary-block color-light position-absolute">
+                            <div className="summary-block color-light position-absolute" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h2>Strategic support for the Ritz Carlton Residences Miami</h2>
                             </div>
                         </div>
                         <div className="images-block d-grid">
                             <div className="image-block image-block-1">
                                 <img width="" height="" src={aventura} alt="" />
-                                <div className="summary-block">
+                                <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                                     <h3>Lifestyle design for the Marina Lofts in Aventura</h3>
                                 </div>
                             </div>
                             <div className="image-block image-block-2">
                                 <img width="" height="" src={marquis} alt="" />
-                                <div className="summary-block">
+                                <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                                     <h3>Breaking ground with the Marquis</h3>
                                 </div>
                             </div>
@@ -308,13 +305,13 @@ const Home = () => {
 
             <div id="team" className="team-section py-120 m-pb-70">               
                 <div className="container">
-                    <div className="header-block center pb-100 m-pb-50">
+                    <div className="header-block center pb-100 m-pb-50" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <h2>Our team</h2>
                     </div>
                     <Tabs>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 1</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -322,7 +319,7 @@ const Home = () => {
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 2" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 2</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -330,7 +327,7 @@ const Home = () => {
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 3" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 3</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -338,7 +335,7 @@ const Home = () => {
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 4" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 4</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -346,7 +343,7 @@ const Home = () => {
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 5" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 5</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -354,7 +351,7 @@ const Home = () => {
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 6" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 6</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -371,43 +368,16 @@ const Home = () => {
                             <h3 className="m-center">contact us</h3>
                             <form className="pt-30" onSubmit={handleSubmit}>
                                 <div className="form-field">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        placeholder="Name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        required
-                                    />
+                                    <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
                                 </div>
                                 <div className="form-field">
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="Email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        required
-                                    />
+                                    <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
                                 </div>
                                 <div className="form-field">
-                                    <input
-                                        type="tel"
-                                        name='phone'
-                                        placeholder="Phone number"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                    />
+                                    <input type="tel" name='phone' placeholder="Phone number" value={formData.phone} onChange={handleChange} />
                                 </div>
                                 <div className="form-field">
-                                    <textarea 
-                                        type="" 
-                                        placeholder="Message" 
-                                        name='message'
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        required 
-                                    ></textarea>
+                                    <textarea placeholder="Message" name='message' value={formData.message} onChange={handleChange} required></textarea>
                                 </div>
                                 <div className="submit-field end">
                                     {isMailSent && (<><p style={{ color: "#fff" }}>Message Sent!</p></>)}
@@ -418,10 +388,10 @@ const Home = () => {
                         <div className="image-block color-light overlay top-bottom-overlay position-relative">
                             <img width="" height="" src={contact} alt="" />                            
                             <div className="summary-block d-flex flex-column justify-content-between position-absolute top-0 w-100 h-100">
-                                <div className="top-summary w-100">
+                                <div className="top-summary w-100" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
                                     <h2>join Ivey Developments in creating home</h2>
                                 </div>
-                                <div className="bottom-summary w-100">
+                                <div className="bottom-summary w-100" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">
                                     <h3>info@iveydevelopments.com</h3>
                                     <ul>
                                         <li><Link to="tel:+1-111-1111">+1-111-1111</Link></li>

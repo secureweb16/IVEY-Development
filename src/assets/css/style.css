@@ -79,6 +79,12 @@ img{
     object-fit: cover;
     object-position: center center;
 }
+.d-block{
+    display: block;
+}
+.d-inline-block{
+    display: inline-block;
+}
 .d-hide{
     display: none;
 }
@@ -118,21 +124,24 @@ img{
     bottom: 0;
 }
 
-/*---- Margin ----*/
-.margin-start-auto{
-    margin-left: auto;
-}
-.m-auto{
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /*---- Layout ----*/
 .container{
     max-width: 1300px;
     width: 100%;
     margin: 0 auto;
     padding: 0 100px;    
+}
+
+/*---- Margin ----*/
+.mn-mt-40{
+    margin-top: -40px;
+}
+.margin-start-auto{
+    margin-left: auto;
+}
+.m-auto{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*---- Padding ----*/
@@ -361,7 +370,7 @@ img{
 
 /*---- Team Section ----*/
 .team-wrapper{
-    grid-template-columns: 60% auto;    
+    grid-template-columns: 55% auto;    
     column-gap: 60px;
 }
 .team-wrapper h3{
@@ -493,13 +502,23 @@ img{
 }
 
 /*---- Animation ----*/
-.aos-animate{
-    animation: blurFadeIn 2s;    
+[data-aos^=fade][data-aos^=fade]{
+    filter: blur(15px);
+    transition: all ease 0.1s;
+}
+[data-aos^=fade][data-aos^=fade].aos-animate{
+    filter: blur(0px);
+}
+
+
+
+/* .aos-animate{
+    animation: blurFadeIn  ease;
 }
 @keyframes blurFadeIn{	    
     0%{
         opacity: 0;
-        filter: blur(30px);
+        filter: blur(30px);        
     }
     50%{
         opacity: 0;
@@ -507,10 +526,10 @@ img{
     }
 	100%{        
         opacity: 1;
-        filter: blur(0px);
+        filter: blur(0px);        
     }
     
-}
+} */
 
 /*---- Responsive ----*/
 @media(max-width: 1280px){
@@ -527,8 +546,7 @@ img{
     h4{
         font-size: 20px;
     }
-    .team-wrapper{
-        grid-template-columns: 58% auto;
+    .team-wrapper{        
         column-gap: 40px;
     }
     .team-wrapper .image-block .summary-block{
@@ -552,8 +570,7 @@ img{
 
 @media(max-width: 1180px){
     
-    .team-wrapper{
-        grid-template-columns: 55% auto;
+    .team-wrapper{        
         column-gap: 30px;
     }
     .team-item .image-block{
@@ -570,6 +587,9 @@ img{
     }    
     .container{
         padding: 0 30px;
+    }
+    .mn-mt-40{
+        margin-top: 0;
     }
     .m-w-100{
         width: 100%;
