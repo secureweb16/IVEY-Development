@@ -18,12 +18,9 @@ import boutiqueDesign from "../assets/images/boutique-design.jpg";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import axios from 'axios';
 import config from "../config";
-
-
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-
 
 const Home = () => {
 
@@ -131,8 +128,7 @@ const Home = () => {
             setIsMailSent(false);
             setIsLoading(false);
         }
-    };
-  
+    };  
  
     const imageBannerRef = useRef();
     const headingBlock1Ref = useRef();
@@ -140,24 +136,24 @@ const Home = () => {
 
     useEffect(() => {
         const el = imageBannerRef.current;
-        gsap.to(el,  {
-            width: "100%", 
+        gsap.to(el, {
+            scale: 1, 
             scrollTrigger: {
                 trigger: el,
                 start: "top bottom-=100",
                 end: "bottom+=100px",
                 scrub: true,
-                markers: true
+                markers: false
             }
         });
 
         const tl = gsap.timeline({            
             scrollTrigger: {
                 trigger: el,
-                start: "top top-=1000", // Adjust the start point as needed
-                end: "bottom center", // Adjust the end point as needed
+                start: "top top-=300",
+                end: "bottom center",
                 scrub: true,
-                markers: true,
+                markers: false
             },
         });
 
@@ -182,17 +178,17 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-grid-section mn-mt-40  m-pt-50 pb-100">
+            <div className="image-grid-section image-grid-section-1 m-pt-50 pb-100">
                 <div className="container">                    
                     <div className="image-grid-wrapper d-grid align-items-end">
                         <div className="image-block image-block-left position-relative">
-                            <img width="" height="" src={champion} alt="" />
+                            <img width="" height="" src={champion} alt="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" />
                             <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                                 <h2>We champion</h2>
                             </div>
                         </div>
                         <div className="image-block image-block-right color-light position-relative">
-                            <img width="" height="" src={boutiqueDesign} alt="" />
+                            <img width="" height="" src={boutiqueDesign} alt="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" />
                             <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">
                                 <h2>boutique design</h2>
                             </div>
@@ -322,20 +318,20 @@ const Home = () => {
                     </div>
                     <div className="image-grid-wrapper d-grid align-items-start">
                         <div className="image-block image-block-left overlay bottom-overlay position-relative">
-                            <img width="" height="" src={miami} alt="" />
+                            <img width="" height="" src={miami} alt="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" />
                             <div className="summary-block color-light position-absolute" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h2>Strategic support for the Ritz Carlton Residences Miami</h2>
                             </div>
                         </div>
                         <div className="images-block d-grid">
                             <div className="image-block image-block-1">
-                                <img width="" height="" src={aventura} alt="" />
+                                <img width="" height="" src={aventura} alt="" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" />
                                 <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                                     <h3>Lifestyle design for the Marina Lofts in Aventura</h3>
                                 </div>
                             </div>
                             <div className="image-block image-block-2">
-                                <img width="" height="" src={marquis} alt="" />
+                                <img width="" height="" src={marquis} alt="" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" />
                                 <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                                     <h3>Breaking ground with the Marquis</h3>
                                 </div>
@@ -352,7 +348,7 @@ const Home = () => {
                     </div>
                     <Tabs>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" />
+                            <img width="" height="" src={team} alt="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 1</div>
@@ -360,7 +356,7 @@ const Home = () => {
                             </div>
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 2" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" />
+                            <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 2</div>
@@ -368,7 +364,7 @@ const Home = () => {
                             </div>
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 3" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" />
+                            <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 3</div>
@@ -376,7 +372,7 @@ const Home = () => {
                             </div>
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 4" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" />
+                            <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 4</div>
@@ -384,7 +380,7 @@ const Home = () => {
                             </div>
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 5" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" />
+                            <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 5</div>
@@ -392,7 +388,7 @@ const Home = () => {
                             </div>
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 6" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" />
+                            <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
                             <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 6</div>

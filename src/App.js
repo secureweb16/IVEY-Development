@@ -10,7 +10,9 @@ import Home from "./pages/Home.jsx";
 function App() {
 	
 	useEffect(() => {
-		AOS.init();
+		AOS.init({
+			once: true,
+		});
 	}, []);
 
 	return (		

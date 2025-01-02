@@ -307,7 +307,7 @@ img{
 
 /*---- Image Banner Section ----*/
 .image-banner-section{
-    height: 240vh;
+    height: 250vh;
 }
 .image-banner-section .image-block-wrapper{
     height: calc(100vh - 128px);
@@ -315,10 +315,8 @@ img{
     top: 128px;
 }
 .image-banner-section .image-block{
-    width: 40%;    
-}
-.image-banner-section .image-block picture{
-    transform-origin: center right;    
+    transform: scale(0.2);
+    transform-origin: center right;
 }
 .image-banner-section .image-block img{
     transition: transform 0.3s ease-out;
@@ -382,6 +380,9 @@ img{
 .image-grid-section .overlay:after{
     opacity: 0.5;
 }
+.image-grid-section-1 .image-block-left img.aos-animate{
+    margin-top: -40px;
+}
 
 /*---- Slider Section ----*/
 .slider-section .header-block{
@@ -390,7 +391,7 @@ img{
 
 /*---- Opportunties Section ----*/
 .opportunities .summary-block{
-    padding: 60px 20px 0;
+    padding: 60px 40px 0;
 }
 .opportunities h3{
     color: var(--color-gray);
@@ -535,6 +536,9 @@ img{
     transition: all ease 0.1s;
 }
 [data-aos^=fade][data-aos^=fade].aos-animate{
+    filter: blur(0px);
+}
+img[data-aos^=fade][data-aos^=fade]{
     filter: blur(0px);
 }
 
