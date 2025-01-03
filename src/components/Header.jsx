@@ -40,6 +40,33 @@ const Header = () => {
         closeNav();
     };
 
+    const menuItems = [
+        { name: "Services", id: "services" },
+        { name: "Team", id: "team" },
+        { name: "Contact", id: "contact" },
+    ];
+
+    const [activeSection, setActiveSection] = useState("");    
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ["services", "team", "contact"];
+            let currentSection = "";
+            menuItems.forEach((id) => {
+                const section = document.getElementById(id);
+                if (section) {
+                    const offset = window.innerHeight / 3;
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop < offset && sectionTop > -section.offsetHeight) {
+                        currentSection = id;
+                    }
+                }
+            });
+            setActiveSection(currentSection);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <header className={`site-header d-flex justify-content-between align-items-center position-fixed px-100 py-50 m-py-30 m-px-30 ${scrolltopdata} w-100`}>
             <div className="site-logo">
@@ -47,9 +74,21 @@ const Header = () => {
             </div>
             <div className={`site-nav ${isNavOpen ? "open-menu" : ""}`}>
                 <ul className="d-flex justify-content-end color-light uppercase">
-                    <li><Link to="/" onClick={(e) =>{ e.preventDefault(); scrollToSection('services')}}>Services</Link></li>
-                    <li><Link to="/" onClick={(e) => { e.preventDefault(); scrollToSection('team')}}>Team</Link></li>
-                    <li><Link to="/" onClick={(e) => { e.preventDefault(); scrollToSection('contact')}}>Contact</Link></li>
+                    {menuItems.map(({ name, id }) => (
+                        <li key={id}>
+                            <Link
+                                to="/"
+                                className={activeSection === id ? "active position-relative" : "position-relative"}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollToSection(id);
+                                    setActiveSection(id); // Update on click
+                                }}
+                            >
+                                {name}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>                
                 <div className="close-menu position-absolute d-hide" onClick={closeNav}><img width="" height="" src={close} alt="" /></div>
             </div>
