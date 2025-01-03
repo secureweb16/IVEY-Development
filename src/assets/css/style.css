@@ -329,7 +329,7 @@ img{
     font-family: var(--heading-font-family);
     font-size: var(--font-size-58);
     line-height: 65px;    
-    transition: all ease 0.2s;
+    transition: all ease 0.4s;
 }
 .image-banner-section .heading-block-2{
     opacity: 0;
@@ -743,10 +743,7 @@ img[data-aos^=fade][data-aos^=fade]{
     .contact-wrapper{
         grid-template-columns: 1fr;
         row-gap: 40px;
-    }
-    .contact-wrapper .image-block{
-        order: -1;
-    }
+    }    
     .contact-section .summary-block{
         padding: 50px 25px;
     }

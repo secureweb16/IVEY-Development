@@ -47,7 +47,7 @@ const Home = () => {
             });      
             return (
                 <div className="team-wrapper d-grid align-items-center">               
-                    <div className="image-block overlay bottom-overlay position-relative">{content}</div>
+                    <div className="image-block overlay bottom-overlay position-relative" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">{content}</div>
                     <TabButtons activeTab={this.state.activeTab} buttons={buttons} changeTab={this.changeTab} />
                 </div>
             );
@@ -349,7 +349,7 @@ const Home = () => {
                     <Tabs>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 1</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -357,7 +357,7 @@ const Home = () => {
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 2" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 2</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -365,7 +365,7 @@ const Home = () => {
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 3" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 3</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -373,7 +373,7 @@ const Home = () => {
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 4" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 4</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -381,7 +381,7 @@ const Home = () => {
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 5" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 5</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -389,7 +389,7 @@ const Home = () => {
                         </Tab>
                         <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 6" teamPosition="Investment Committee Advisor">
                             <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                            <div className="summary-block color-light position-absolute bottom-0 w-100">
                                 <h3>Kirk Ivy</h3>
                                 <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 6</div>
                                 <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -426,10 +426,10 @@ const Home = () => {
                         <div className="image-block color-light overlay top-bottom-overlay position-relative">
                             <img width="" height="" src={contact} alt="" />                            
                             <div className="summary-block d-flex flex-column justify-content-between position-absolute top-0 w-100 h-100">
-                                <div className="top-summary w-100" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
+                                <div className="top-summary w-100" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                                     <h2>join Ivey Developments in creating home</h2>
                                 </div>
-                                <div className="bottom-summary w-100" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">
+                                <div className="bottom-summary w-100" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
                                     <h3>info@iveydevelopments.com</h3>
                                     <ul>
                                         <li><Link to="tel:+1-111-1111">+1-111-1111</Link></li>
