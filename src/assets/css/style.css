@@ -731,6 +731,9 @@ img[data-aos^=fade][data-aos^=fade]{
     .image-grid-section .image-grid-wrapper{        
         column-gap: 20px;
     }
+    .image-grid-section-1 .image-block-left img.aos-animate{
+        margin-top: 0;
+    }
     .image-grid-odd .image-grid-wrapper{
         grid-template-columns: 1fr;
         row-gap: 20px;

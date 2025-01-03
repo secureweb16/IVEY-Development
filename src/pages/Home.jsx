@@ -178,7 +178,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-grid-section image-grid-section-1 m-pt-50 pb-100 hidden-x">
+            <div className="image-grid-section image-grid-section-1 m-pt-50 pb-100">
                 <div className="container">                    
                     <div className="image-grid-wrapper d-grid align-items-end">
                         <div className="image-block image-block-left position-relative">
