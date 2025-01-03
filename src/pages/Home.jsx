@@ -101,8 +101,8 @@ const Home = () => {
   };
 
   const [isMailSent, setIsMailSent] = useState(false);
-  const [data,setData]=useState(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [data, setData] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -116,7 +116,7 @@ const Home = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true); 
+    setIsSubmitting(true);
   };
   useEffect(() => {
     const submitForm = async () => {
@@ -125,7 +125,10 @@ const Home = () => {
         const response = await axios.post(
           `${config.BASE_URL}/api/v1/user/contact-us`,
           formData,
-          { headers: { "Content-Type": "application/json" }, withCredentials: true }
+          {
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          }
         );
 
         if (response.status === 200) {
@@ -147,14 +150,14 @@ const Home = () => {
         setIsMailSent(false);
         setIsLoading(false);
       } finally {
-        setIsSubmitting(false); 
+        setIsSubmitting(false);
       }
     };
 
     if (isSubmitting) {
       submitForm();
     }
-  }, [isSubmitting]); 
+  }, [isSubmitting]);
 
   const imageBannerRef = useRef();
   const headingBlock1Ref = useRef();
@@ -744,11 +747,7 @@ const Home = () => {
                   ></textarea>
                 </div>
                 <div className="submit-field end">
-                  {isMailSent && (
-                    <>
-                      <p style={{ color: "#fff" }}>Message Sent!</p>
-                    </>
-                  )}
+                  
                   <button
                     type="submit"
                     className="submit-button d-inline-flex justify-content-end align-items-center"
@@ -756,16 +755,16 @@ const Home = () => {
                   >
                     send <img width="" height="" src={rightArrow} alt="" />
                   </button>
-                  
                 </div>
 
-                {
-                    isLoading && <p className="loader_contactForm"></p>
-                }
+                {isLoading && <p className="loader_contactForm">Loading</p>}
+                {isMailSent && !isLoading && data?.success && (
+                    <>
+                      {/* <p style={{ color: "#fff" }}>Message Sent!</p> */}
+                      <p className="text-black">{data?.success}</p>
+                    </>
+                  )}
               </form>
-              {
-                !isLoading && data?.message && <p className="text-black">{data.success}</p>
-              }
             </div>
             <div className="image-block color-light overlay top-bottom-overlay position-relative">
               <img width="" height="" src={contact} alt="" />
