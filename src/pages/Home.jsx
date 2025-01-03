@@ -166,19 +166,19 @@ const Home = () => {
 
         <Layout>
             
-            <div id="home" className="hero-section full-screen">
+            <div id="home" className="hero-section full-screen hidden-x">
                 <div className="banner-image d-flex justify-content-center align-items-center h-100">
                     <div className="image-block color-light overlay bottom-overlay ms-auto position-relative w-50 m-w-100 h-100" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
                         <img className="cover" width="" height="" src={heroBanner} alt="" />
                         <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">Ivey Development is a company that helps property owners with assets suitable for development. Instead of selling their properties, owners’ partner with Ivey to maximize their value.</div>
                     </div>
-                    <div className="heading-block position-absolute">
+                    <div className="heading-block m-color-light position-absolute">
                         <h1><span className="d-inline-block" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">Scaling</span> <span className="d-inline-block color-light" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">‘home’.</span></h1>
                     </div>
                 </div>
             </div>
 
-            <div className="image-grid-section image-grid-section-1 m-pt-50 pb-100">
+            <div className="image-grid-section image-grid-section-1 m-pt-50 pb-100 hidden-x">
                 <div className="container">                    
                     <div className="image-grid-wrapper d-grid align-items-end">
                         <div className="image-block image-block-left position-relative">
@@ -189,7 +189,7 @@ const Home = () => {
                         </div>
                         <div className="image-block image-block-right color-light position-relative">
                             <img width="" height="" src={boutiqueDesign} alt="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" />
-                            <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">
+                            <div className="summary-block color-light position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">
                                 <h2>boutique design</h2>
                             </div>
                         </div>
@@ -205,37 +205,34 @@ const Home = () => {
                             <img className="h-100 cover" src={designed} alt="" />
                         </picture>                        
                     </div>
-                    <div className="summary-block d-flex justify-content-center align-items-center position-absolute w-100 h-100">
-                        <div className="heading-block heading-block-1 position-absolute" ref={headingBlock1Ref}>life, well designed.</div>
-                        <div className="heading-block heading-block-2 position-absolute" ref={headingBlock2Ref}>only verified vetted members</div>           
+                    <div className="summary-block d-flex justify-content-center align-items-center position-absolute center w-100 h-100">
+                        <div className="heading-block heading-block-1 position-absolute px-20" ref={headingBlock1Ref}>life, well designed.</div>
+                        <div className="heading-block heading-block-2 position-absolute px-20" ref={headingBlock2Ref}>only verified vetted members</div>           
                     </div>         
                 </div>
             </div>
 
-            <div id="services" className="slider-section opportunities py-120 m-py-80">
+            <div id="services" className="slider-section opportunities py-120 m-py-80 hidden-x">
                 <div className="container">
-                    <div className="header-block center m-auto pb-50" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                    <div className="header-block center m-auto pb-50 m-pb-20" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                         <h2>Creating new opportunities in south Florida</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div className='sm-center' data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                     <Swiper                    
-                        loop={true}                    
-                        slidesPerView={1}                    
+                        loop={true}              
+                        slidesPerView={1}
                         breakpoints={{
                             767:{
-                                loop: false,
                                 slidesPerView: 2,
                                 spaceBetween: 15,
                             },
                             992:{
-                                loop: false,
                                 slidesPerView: 3,
                                 spaceBetween: 15,
                             },
-                            1367:{
-                                loop: false,
+                            1367:{                 
                                 slidesPerView: 4,
                                 spaceBetween: 15,
                             }
@@ -311,9 +308,9 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-grid-section image-grid-odd pt-100 m-pt-0">
+            <div className="image-grid-section image-grid-odd pt-100 m-pt-0 hidden-x">
                 <div className="container">
-                    <div className="header-block" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                    <div className="header-block" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-offset="100">
                         <h2 className="mb-0">the source of our experience <img width="" height="" src={downArrow} alt="" /></h2>
                     </div>
                     <div className="image-grid-wrapper d-grid align-items-start">
@@ -399,7 +396,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div id="contact" className="contact-section py-120 m-py-70">
+            <div id="contact" className="contact-section py-120 m-py-70 hidden-x">
                 <div className="container">
                     <div className="contact-wrapper d-grid align-items-center">
                         <div className="form-block">

@@ -4,7 +4,9 @@
 :root{
     --body-font-family: 'Lato';
     --heading-font-family: 'Helvetica Neue';
-    --font-size-58: 58px;    
+    --font-size-58: 58px;
+    --color-dark: #000;
+    --color-light: #fff;
     --color-gray: #A7A39C;
     --color-light-gray: #EDEBE8
 }
@@ -15,7 +17,7 @@ body{
     font-family: var(--body-font-family);
     font-size: 14px;
     line-height: 28px;
-    color: #000;
+    color: var(--color-dark);
     font-weight: 300;
 }
 
@@ -24,6 +26,7 @@ h1, h2, h3, h4, h5, h6{
     margin: 0 0 20px;
     padding: 0;
     font-family: var(--heading-font-family);
+    color: var(--color-dark);
     font-weight: 400;
 }
 h1{
@@ -88,11 +91,16 @@ img{
 .d-hide{
     display: none;
 }
+.hidden-x{
+    overflow-x: hidden;
+}
 
 /*---- Color ----*/
 .color-light,
+.color-light h2,
+.color-light h3,
 .color-light a{
-    color: #fff;
+    color: var(--color-light);
 }
 
 /*---- Text ----*/
@@ -148,6 +156,10 @@ img{
 .px-100{
     padding-left: 100px;
     padding-right: 100px;
+}
+.px-20{
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .py-150{
     padding-top: 150px;
@@ -328,7 +340,7 @@ img{
 .image-banner-section .heading-block{
     font-family: var(--heading-font-family);
     font-size: var(--font-size-58);
-    line-height: 65px;    
+    line-height: 65px;
     transition: all ease 0.4s;
 }
 .image-banner-section .heading-block-2{
@@ -410,7 +422,8 @@ img{
     padding: 60px;    
 }
 .team-item{
-    column-gap: 25px;    
+    column-gap: 25px;
+    color: var(--color-dark);
 }
 .team-items button{
     width: 100%;
@@ -542,27 +555,6 @@ img[data-aos^=fade][data-aos^=fade]{
     filter: blur(0px);
 }
 
-
-
-/* .aos-animate{
-    animation: blurFadeIn  ease;
-}
-@keyframes blurFadeIn{	    
-    0%{
-        opacity: 0;
-        filter: blur(30px);        
-    }
-    50%{
-        opacity: 0;
-        filter: blur(15px);
-    }
-	100%{        
-        opacity: 1;
-        filter: blur(0px);        
-    }
-    
-} */
-
 /*---- Responsive ----*/
 @media(max-width: 1280px){
 
@@ -657,14 +649,23 @@ img[data-aos^=fade][data-aos^=fade]{
     .m-pb-50{
         padding-bottom: 50px;
     }
+    .m-pb-20{
+        padding-bottom: 20px;
+    }
     .m-pb-10{
         padding-bottom: 10px;
     }
     .m-center{
         text-align: center;
     }
+    .m-color-light h1{
+        color: var(--color-light);
+    }
     .d-hide{
         display: block;
+    }
+    .site-logo img{
+        filter: invert(100%);
     }
     .site-nav{
         width: 100%;
@@ -726,23 +727,28 @@ img[data-aos^=fade][data-aos^=fade]{
     }
     .team-items{
         display: flex;        
-        column-gap: 40px;        
+        column-gap: 20px;        
         order: -1;
         overflow-x: auto;
     }
     .team-items button{
         flex: 0 0 auto;        
-        width: 260px;
+        width: 295px;
         flex-direction: column;
         row-gap: 15px;
         text-align: center;
+    }
+    .team-item[data-aos^=fade][data-aos^=fade]{
+        filter: blur(0px);
+        transform: none;
+        opacity: 1;
     }
     .team-item .image-block{
         margin: 0 auto;
     }
     .contact-wrapper{
         grid-template-columns: 1fr;
-        row-gap: 40px;
+        row-gap: 50px;
     }    
     .contact-section .summary-block{
         padding: 50px 25px;
@@ -759,7 +765,10 @@ img[data-aos^=fade][data-aos^=fade]{
 @media(max-width: 767px){
 
     :root{
-        --font-size-58: 40px;
+        --font-size-58: 36px;
+    }
+    h1{
+        line-height: 40px;
     }
     h2{
         font-size: 26px;
@@ -772,6 +781,12 @@ img[data-aos^=fade][data-aos^=fade]{
     h4{
         font-size: 18px;
         line-height: 26px;
+    }
+    .sm-center{
+        text-align: center;
+    }
+    .image-banner-section .heading-block{
+        line-height: 42px;
     }
     .hero-section .summary-block{
         font-size: 18px;
@@ -821,6 +836,9 @@ img[data-aos^=fade][data-aos^=fade]{
         padding-left: 20px;
         padding-right: 20px;
     }
+    .team-items button{
+        width: 320px;
+    }    
 
 }
 
@@ -837,6 +855,6 @@ img[data-aos^=fade][data-aos^=fade]{
     .m-px-30 {
         padding-left: 20px;
         padding-right: 20px;
-    }
+    }    
 
 }
