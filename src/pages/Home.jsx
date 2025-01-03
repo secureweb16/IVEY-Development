@@ -207,7 +207,7 @@ const Home = () => {
                     </div>
                     <div className="summary-block d-flex justify-content-center align-items-center position-absolute center w-100 h-100">
                         <div className="heading-block heading-block-1 position-absolute px-20" ref={headingBlock1Ref}>life, well designed.</div>
-                        <div className="heading-block heading-block-2 position-absolute px-20" ref={headingBlock2Ref}>only verified vetted members</div>           
+                        <div className="heading-block heading-block-2 position-absolute px-20" ref={headingBlock2Ref}>boutique design</div>           
                     </div>         
                 </div>
             </div>
