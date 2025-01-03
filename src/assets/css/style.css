@@ -528,9 +528,15 @@ img{
     cursor: pointer;
     column-gap: 15px;
 }
-.submit-field .submit-button img{
+.submit-field .submit-button img{ 
     transform: translateY(3px);
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px var(--color-light-gray) inset;
+}  
 ::-webkit-input-placeholder{
     color: #000;
     opacity: 0.4;
@@ -735,6 +741,10 @@ img[data-aos^=fade][data-aos^=fade]{
     }
     .image-grid-section .image-block-left .summary-block{
         left: -15px;
+    }
+    .image-banner-section .image-block-wrapper {
+        height: calc(100vh - 66px);        
+        top: 66px;
     }
     .team-wrapper{
         grid-template-columns: 1fr;

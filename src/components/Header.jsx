@@ -49,7 +49,7 @@ const Header = () => {
     const [activeSection, setActiveSection] = useState("");    
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ["services", "team", "contact"];
+            const menuItems = ["services", "team", "contact"];
             let currentSection = "";
             menuItems.forEach((id) => {
                 const section = document.getElementById(id);
