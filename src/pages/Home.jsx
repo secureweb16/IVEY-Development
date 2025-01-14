@@ -2,16 +2,15 @@ import React, {useState, useEffect, useRef} from 'react';
 import { Link } from "react-router-dom";
 import Layout from "./Layout";
 import heroBanner from "../assets/images/home-hero-banner.jpg";
-import champion from "../assets/images/champion.jpg";
-import designed from "../assets/images/designed.jpg";
-import designedMobile from "../assets/images/designed-mobile.jpg";
+import enduring from "../assets/images/enduring-value.jpg";
+import luxury from "../assets/images/luxury.jpg";
+import championVideo from "../assets/videos/champion.mp4";
 import opportunity from "../assets/images/opportunity.jpg";
 import downArrow from "../assets/images/down-arrow.svg";
 import miami from "../assets/images/miami.jpg";
 import aventura from "../assets/images/aventura.jpg";
 import marquis from "../assets/images/marquis.jpg";
-import team from "../assets/images/team.jpg";
-import teamProfile from "../assets/images/team-profile.jpg";
+import teamProfile from "../assets/images/team-profile.png";
 import contact from "../assets/images/contact.jpg";
 import rightArrow from "../assets/images/right-arrow.svg";
 import boutiqueDesign from "../assets/images/boutique-design.jpg";
@@ -23,73 +22,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-
-    class Tabs extends React.Component{
-        state = {
-            activeTab: this.props.children[0].props.teamHeading,
-        };
-      
-        changeTab = (tab) => {
-            this.setState({ activeTab: tab });
-        };
-      
-        render(){
-            let content;
-            const buttons = React.Children.map(this.props.children, (child) => {
-                if (child.props.teamHeading === this.state.activeTab) {
-                    content = child.props.children;
-                }
-                return {
-                    teamProfile: child.props.teamProfile,
-                    teamHeading: child.props.teamHeading,
-                    teamPosition: child.props.teamPosition,
-                };
-            });      
-            return (
-                <div className="team-wrapper d-grid align-items-center">               
-                    <div className="image-block overlay bottom-overlay position-relative" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">{content}</div>
-                    <TabButtons activeTab={this.state.activeTab} buttons={buttons} changeTab={this.changeTab} />
-                </div>
-            );
-        }
-    }
-  
-    const TabButtons = ({ buttons, changeTab, activeTab }) => {
-        return (
-            <div className="team-items">
-                {buttons.map((button) => {
-                    const { teamProfile, teamHeading, teamPosition } = button;
-                    return(
-                        <button
-                            key={teamHeading}
-                            className={
-                            teamHeading === activeTab
-                                ? 'active team-item d-flex align-items-center'
-                                : 'team-item d-flex align-items-center'
-                            }
-                            onClick={() => changeTab(teamHeading)}
-                            data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                            <div className="image-block">
-                                <img src={teamProfile} alt="" className="button-image" />
-                            </div>
-                            <div className="summary-block">
-                                <h4>{teamHeading}</h4>
-                                <div className="position-block">{teamPosition}</div>
-                            </div>
-                        </button>
-                    );
-                })}
-          </div>
-        );
-    };
-      
-    const Tab = props =>{
-        return(
-            <React.Fragment>
-                {props.children}
-            </React.Fragment>
-        )
-    }
 
     const [isMailSent, setIsMailSent] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -130,19 +62,20 @@ const Home = () => {
         }
     };  
  
-    const imageBannerRef = useRef();
+    const videoBannerRef = useRef();
     const headingBlock1Ref = useRef();
     const headingBlock2Ref = useRef();
 
     useEffect(() => {
-        const el = imageBannerRef.current;
+        const el = videoBannerRef.current;
         gsap.to(el, {
             scale: 1, 
+            ease: "power2.out",
             scrollTrigger: {
                 trigger: el,
-                start: "top bottom-=100",
+                start: "top center",
                 end: "bottom+=100px",
-                scrub: true,
+                scrub: 1.05,
                 markers: false
             }
         });
@@ -166,7 +99,7 @@ const Home = () => {
 
         <Layout>
             
-            <div id="home" className="hero-section full-screen hidden-x">
+            <div id="home" className="hero-section full-screen">
                 <div className="banner-image d-flex justify-content-center align-items-center h-100">
                     <div className="image-block color-light overlay bottom-overlay ms-auto position-relative w-50 m-w-100 h-100" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
                         <img className="cover" width="" height="" src={heroBanner} alt="" />
@@ -178,32 +111,59 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-grid-section image-grid-section-1 m-pt-50 pb-100">
+            <div className="image-grid-section image-grid-section-1 pt-60 m-pt-50 pb-50">
                 <div className="container">                    
                     <div className="image-grid-wrapper d-grid align-items-end">
-                        <div className="image-block image-block-left position-relative">
-                            <img width="" height="" src={champion} alt="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                <h2>We champion</h2>
+                        <div className="video-block position-relative">
+                            <video className="cover" autoPlay muted loop data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                                <source src={championVideo} type="video/mp4"/>
+                            </video>                            
+                            <div className="summary-block position-absolute">
+                                <h2 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">We champion</h2>
                             </div>
                         </div>
-                        <div className="image-block image-block-right color-light position-relative">
+                        <div className="image-block color-light position-relative">
                             <img width="" height="" src={boutiqueDesign} alt="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">
-                                <h2>boutique design</h2>
+                            <div className="summary-block color-light position-absolute">
+                                <h2 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">boutique design</h2>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>
 
-            <div className="image-banner-section">
-                <div className="image-block-wrapper position-relative">
-                    <div className="image-block ms-auto h-100" ref={imageBannerRef}>
-                        <picture className="w-100">
-                            <source media="(max-width:1023px)" srcSet={designedMobile}/>
-                            <img className="h-100 cover" src={designed} alt="" />
-                        </picture>                        
+            <div className="image-grid-section image-grid-section-2 m-pt-50 pb-100">
+                <div className="container">                    
+                    <div className="image-grid-wrapper d-grid">
+                        <div className="grid-item grid-item-1 d-grid">
+                            <div className="image-block d-grid">
+                                <img width="" height="" src={luxury} alt="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" />
+                                <h4 className="end" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">the luxury of convenience</h4>
+                            </div>
+                            <div className="video-block">
+                                <video className="w-100" autoPlay muted loop data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                                    <source src={championVideo} type="video/mp4"/>
+                                </video> 
+                            </div>                            
+                        </div>
+                        <div className="grid-item grid-item-2 h-100">
+                            <div className="image-block d-inline-flex align-items-center position-relative h-100">
+                                <img className="cover" width="" height="" src={enduring} alt="" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000" />
+                                <div className="summary-block position-absolute">
+                                    <h4 data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">enduring value</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="video-banner-section">
+                <div className="video-block-wrapper position-relative">
+                    <div className="video-block ms-auto h-100" ref={videoBannerRef}>
+                        <video className="cover" autoPlay muted loop>
+                            <source src={championVideo} type="video/mp4"/>
+                        </video>                        
                     </div>
                     <div className="summary-block d-flex justify-content-center align-items-center position-absolute center w-100 h-100">
                         <div className="heading-block heading-block-1 position-absolute px-20" ref={headingBlock1Ref}>life, well designed.</div>
@@ -212,7 +172,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div id="services" className="slider-section opportunities py-120 m-py-80 hidden-x">
+            <div id="services" className="slider-section opportunities py-120 m-py-80">
                 <div className="container">
                     <div className="header-block center m-auto pb-50 m-pb-20" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000" data-aos-offset="100">
                         <h2>Creating new opportunities in south Florida</h2>
@@ -308,7 +268,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-grid-section image-grid-odd pt-100 m-pt-0 hidden-x">
+            <div className="image-grid-section image-grid-section-3 image-grid-odd pt-100 m-pt-0">
                 <div className="container">
                     <div className="header-block" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-offset="100">
                         <h2 className="mb-0">the source of our experience <img width="" height="" src={downArrow} alt="" /></h2>
@@ -343,56 +303,62 @@ const Home = () => {
                     <div className="header-block center pb-100 m-pb-50" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <h2>Our team</h2>
                     </div>
-                    <Tabs>
-                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
-                                <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 1</div>
-                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    <div className="team-items d-grid">
+                        <div className="team-item d-grid align-items-center">
+                            <div className="image-block">
+                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
                             </div>
-                        </Tab>
-                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 2" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
-                                <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 2</div>
-                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                            <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                                <h4>Andy Ashwal</h4>
+                                <div className="position-block">Investment Committee Advisor</div>
                             </div>
-                        </Tab>
-                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 3" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
-                                <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 3</div>
-                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                        </div>
+                        <div className="team-item d-grid align-items-center">
+                            <div className="image-block">
+                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
                             </div>
-                        </Tab>
-                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 4" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
-                                <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 4</div>
-                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                            <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                                <h4>Andy Ashwal</h4>
+                                <div className="position-block">Investment Committee Advisor</div>
                             </div>
-                        </Tab>
-                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 5" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
-                                <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 5</div>
-                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                        </div>
+                        <div className="team-item d-grid align-items-center">
+                            <div className="image-block">
+                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
                             </div>
-                        </Tab>
-                        <Tab teamProfile={teamProfile} teamHeading="Andy Ashwal 6" teamPosition="Investment Committee Advisor">
-                            <img width="" height="" src={team} alt="" data-aos-delay="200" data-aos-duration="1000" />
-                            <div className="summary-block color-light position-absolute bottom-0 w-100">
-                                <h3>Kirk Ivy</h3>
-                                <div className="position-block uppercase pb-20 m-pb-10">President & Chief Development Officer 6</div>
-                                <div className="text-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                            <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                                <h4>Andy Ashwal</h4>
+                                <div className="position-block">Investment Committee Advisor</div>
                             </div>
-                        </Tab>                       
-                    </Tabs>                    
+                        </div>
+                        <div className="team-item d-grid align-items-center">
+                            <div className="image-block">
+                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
+                            </div>
+                            <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                                <h4>Andy Ashwal</h4>
+                                <div className="position-block">Investment Committee Advisor</div>
+                            </div>
+                        </div>
+                        <div className="team-item d-grid align-items-center">
+                            <div className="image-block">
+                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
+                            </div>
+                            <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                                <h4>Andy Ashwal</h4>
+                                <div className="position-block">Investment Committee Advisor</div>
+                            </div>
+                        </div>
+                        <div className="team-item d-grid align-items-center">
+                            <div className="image-block">
+                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
+                            </div>
+                            <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                                <h4>Andy Ashwal</h4>
+                                <div className="position-block">Investment Committee Advisor</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
