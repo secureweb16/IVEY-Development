@@ -20,7 +20,7 @@ function App() {
 			<Routes Routes>
 				<Route path="/" element={<Home />} />
 			</Routes>
-		</Router>		
+		</Router>
 	);
 }
 

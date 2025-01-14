@@ -95,6 +95,9 @@ video{
 .d-hide{
     display: none;
 }
+.hidden{
+    overflow: hidden;
+}
 .hidden-x{
     overflow-x: hidden;
 }
@@ -788,6 +791,12 @@ img[data-aos^=fade][data-aos^=fade]{
         padding: 30px;
         left: 0;
     }
+    .image-grid-section-1 .video-block .summary-block{
+        margin: 0 auto;
+        padding-top: 0;
+        left: 0;        
+        right: 0;
+    }
     .image-grid-section-2 .image-grid-wrapper{
         row-gap: 50px;
     }
@@ -828,7 +837,13 @@ img[data-aos^=fade][data-aos^=fade]{
         grid-template-columns: 1fr;        
     }
     .team-item{
+        grid-template-columns: 80px auto;
         justify-content: center;
+        column-gap: 20px;
+    }
+    .team-item .image-block{
+        width: 80px;
+        height: 80px;
     }
     .contact-section .summary-block h2{
         font-size: 20px;

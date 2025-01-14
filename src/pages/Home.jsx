@@ -8,7 +8,6 @@ import championVideo from "../assets/videos/champion.mp4";
 import opportunity from "../assets/images/opportunity.jpg";
 import downArrow from "../assets/images/down-arrow.svg";
 import miami from "../assets/images/miami.jpg";
-import aventura from "../assets/images/aventura.jpg";
 import marquis from "../assets/images/marquis.jpg";
 import teamProfile from "../assets/images/team-profile.png";
 import contact from "../assets/images/contact.jpg";
@@ -61,6 +60,20 @@ const Home = () => {
             setIsLoading(false);
         }
     };  
+
+    const videoRef = useRef(null);
+
+    const handleMouseEnter = () => {
+        if (videoRef.current) {
+            videoRef.current.play();
+        }
+    };
+
+    const handleMouseLeave = () => {
+        if (videoRef.current) {
+            videoRef.current.pause();
+        }
+    };
  
     const videoBannerRef = useRef();
     const headingBlock1Ref = useRef();
@@ -99,9 +112,9 @@ const Home = () => {
 
         <Layout>
             
-            <div id="home" className="hero-section full-screen">
+            <div id="home" className="hero-section full-screen hidden-x">
                 <div className="banner-image d-flex justify-content-center align-items-center h-100">
-                    <div className="image-block color-light overlay bottom-overlay ms-auto position-relative w-50 m-w-100 h-100" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+                    <div className="image-block color-light overlay bottom-overlay ms-auto position-relative w-50 m-w-100 h-100" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                         <img className="cover" width="" height="" src={heroBanner} alt="" />
                         <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">Ivey Development is a company that helps property owners with assets suitable for development. Instead of selling their properties, owners’ partner with Ivey to maximize their value.</div>
                     </div>
@@ -111,14 +124,14 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-grid-section image-grid-section-1 pt-60 m-pt-50 pb-50">
+            <div className="image-grid-section image-grid-section-1 pt-60 m-pt-50 pb-50 hidden">
                 <div className="container">                    
                     <div className="image-grid-wrapper d-grid align-items-end">
                         <div className="video-block position-relative">
                             <video className="cover" autoPlay muted loop data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                                 <source src={championVideo} type="video/mp4"/>
                             </video>                            
-                            <div className="summary-block position-absolute">
+                            <div className="summary-block sm-center position-absolute">
                                 <h2 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">We champion</h2>
                             </div>
                         </div>
@@ -132,7 +145,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-grid-section image-grid-section-2 m-pt-50 pb-100">
+            <div className="image-grid-section image-grid-section-2 pb-100 hidden-x">
                 <div className="container">                    
                     <div className="image-grid-wrapper d-grid">
                         <div className="grid-item grid-item-1 d-grid">
@@ -172,7 +185,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div id="services" className="slider-section opportunities py-120 m-py-80">
+            <div id="services" className="slider-section opportunities py-120 m-py-80 hidden-x">
                 <div className="container">
                     <div className="header-block center m-auto pb-50 m-pb-20" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000" data-aos-offset="100">
                         <h2>Creating new opportunities in south Florida</h2>
@@ -268,7 +281,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="image-grid-section image-grid-section-3 image-grid-odd pt-100 m-pt-0">
+            <div className="image-grid-section image-grid-section-3 image-grid-odd pt-100 m-pt-0 hidden-x">
                 <div className="container">
                     <div className="header-block" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-offset="100">
                         <h2 className="mb-0">the source of our experience <img width="" height="" src={downArrow} alt="" /></h2>
@@ -281,8 +294,12 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="images-block d-grid">
-                            <div className="image-block image-block-1">
-                                <img width="" height="" src={aventura} alt="" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" />
+                            <div className="video-block">
+                                <div className="video-block-wrapper" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>                                
+                                    <video className="w-100" muted loop ref={videoRef}>
+                                        <source src={championVideo} type="video/mp4"/>
+                                    </video>
+                                </div>
                                 <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                                     <h3>Lifestyle design for the Marina Lofts in Aventura</h3>
                                 </div>
@@ -298,7 +315,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div id="team" className="team-section py-120 m-pb-70">               
+            <div id="team" className="team-section py-120 m-pb-70 hidden-x">               
                 <div className="container">
                     <div className="header-block center pb-100 m-pb-50" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <h2>Our team</h2>
