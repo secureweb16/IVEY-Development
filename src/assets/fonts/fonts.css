@@ -6,6 +6,18 @@
     font-style: normal;
     font-display: swap;
 }
+
+
+@font-face {
+    font-family: 'Messina Sans';
+    src: url('MessinaSans-Light.woff2') format('woff2'),
+        url('MessinaSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 @font-face{
     font-family: 'Lato';
     src: url('Lato-Regular.woff2') format('woff2'),
@@ -22,6 +34,8 @@
     font-style: normal;
     font-display: swap;
 }
+
+
 
 
 
