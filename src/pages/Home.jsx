@@ -10,6 +10,9 @@ import lifewellVideo from "../assets/videos/life-well.mp4";
 import miamibeachVideo from "../assets/videos/miami-beach.mp4";
 import aventuraVideo from "../assets/videos/aventura.mp4";
 import keybiscayneVideo from "../assets/videos/key-biscayne.mp4";
+import miami from "../assets/images/miami.jpg";
+import aventura from "../assets/images/aventura.jpg";
+import keybiscayne from "../assets/images/key-biscayne.jpg";
 import opportunity1 from "../assets/images/opportunity-1.jpg";
 import opportunity2 from "../assets/images/opportunity-2.jpg";
 import opportunity3 from "../assets/images/opportunity-3.jpg";
@@ -19,7 +22,6 @@ import teamProfile from "../assets/images/team-profile.png";
 import contact from "../assets/images/contact.jpg";
 import rightArrow from "../assets/images/right-arrow.svg";
 import boutiqueDesign from "../assets/images/boutique-design.jpg";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import axios from 'axios';
 import config from "../config";
 import gsap from 'gsap';
@@ -140,7 +142,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="image-block position-relative">
-                            <img width="" height="" src={boutiqueDesign} alt="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" />
+                            <img width="" height="" src={boutiqueDesign} alt="" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" />
                             <div className="summary-block sm-center color-light position-absolute">
                                 <h4 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">boutique design</h4>
                             </div>
@@ -154,20 +156,20 @@ const Home = () => {
                     <div className="image-grid-wrapper d-grid">
                         <div className="grid-item grid-item-1 d-grid">
                             <div className="image-block d-grid">
-                                <img width="" height="" src={luxury} alt="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" />
-                                <h4 className="end" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">the luxury of convenience</h4>
+                                <img width="" height="" src={luxury} alt="" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" />
+                                <h4 className="end" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">the luxury of convenience</h4>
                             </div>
                             <div className="video-block">
-                                <img width="" height="" src={luxury2} alt="" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" />                                
+                                <img width="" height="" src={luxury2} alt="" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" />                                
                             </div>                            
                         </div>
-                        <div className="grid-item grid-item-2">
-                            <div className="video-block d-inline-flex align-items-center position-relative h-100">
-                                <video className="cover" autoPlay muted loop playsInline data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                        <div className="grid-item grid-item-2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                            <div className="video-block d-inline-flex align-items-center position-relative overlay-full h-100">
+                                <video className="cover" autoPlay muted loop playsInline>
                                     <source src={luxuryVideo} type="video/mp4"/>
                                 </video> 
                                 <div className="summary-block color-light position-absolute">
-                                    <h4 data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">enduring value</h4>
+                                    <h4 data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">enduring value</h4>
                                 </div>
                             </div>
                         </div>
@@ -192,74 +194,33 @@ const Home = () => {
             <div id="services" className="slider-section opportunities py-120 m-py-80 hidden-x">
                 <div className="container">
                     <div className="header-block center m-auto pb-50 m-pb-20" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000" data-aos-offset="100">
-                        <h2>Creating new opportunities in south Florida</h2>
+                        <h3 className="m-auto">creating new opportunities in South Florida and beyond</h3>
                         <p>Ivey Developments’ vision is to <strong>make space for life, well-designed.</strong> We aim to meaningfully participate in the creation of spaces that generate value continuously for all stakeholders, inhabitants included, as communities continue to develop.</p>
                     </div>
                 </div>
-                <div className='sm-center' data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    <Swiper                    
-                        loop={true}              
-                        slidesPerView={1}
-                        breakpoints={{
-                            767:{
-                                slidesPerView: 2,
-                                spaceBetween: 15,
-                            },
-                            992:{
-                                slidesPerView: 3,
-                                spaceBetween: 15,
-                            },
-                            1367:{                 
-                                slidesPerView: 4,
-                                spaceBetween: 15,
-                            }
-                        }}
-                    >
-                        <SwiperSlide>
-                            <div className="slider-item">
-                                <div className="image-block">
-                                    <img width="" height="" src={opportunity1} alt="" />
-                                </div>
-                                <div className="summary-block">
-                                    <h4>small scale development</h4>
-                                    <p>Boutique, community-oriented, and curated development with long term value to the area, shareholders, and the inhabitants in mind.</p>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="slider-item">
-                                <div className="image-block">
-                                    <img width="" height="" src={opportunity2} alt="" />
-                                </div>
-                                <div className="summary-block">
-                                    <h4>community planning</h4>
-                                    <p>We plan for life, well designed. Our approach to community planning champions convenient, fulfilling, and balanced living and maintaining that standard amist growth. </p>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="slider-item">
-                                <div className="image-block">
-                                    <img width="" height="" src={opportunity3} alt="" />
-                                </div>
-                                <div className="summary-block">
-                                    <h4>above average returns</h4>
-                                    <p>Our goal is to provide outstanding returns through the unassailable approach of beautiful design, conscientious planning, and efficient  execution.</p>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="slider-item">
-                                <div className="image-block">
-                                    <img width="" height="" src={opportunity4} alt="" />
-                                </div>
-                                <div className="summary-block">
-                                    <h4>small scale development</h4>
-                                    <p>Boutique, community-oriented, and curated development with long term value to the area, shareholders, and the inhabitants in mind.</p>
-                                </div>
-                            </div>
-                        </SwiperSlide>                       
-                    </Swiper>
+                <div className="opportunity-images images-section">
+                    <div className="d-grid column-4">
+                        <div className="image-block"><img className="cover" width="" height="" src={opportunity1} alt="" /></div>
+                        <div className="image-block"><img className="cover" width="" height="" src={opportunity2} alt="" /></div>
+                        <div className="image-block"><img className="cover" width="" height="" src={opportunity3} alt="" /></div>
+                        <div className="image-block"><img className="cover" width="" height="" src={opportunity4} alt="" /></div>
+                    </div>
+                </div>
+                <div className="opportunity-text-column pt-80 px-100">
+                    <div className="d-grid column-3">
+                        <div className="summary-block">
+                            <h4>small scale development</h4>
+                            <p>Boutique, community-oriented, and curated development with long term value to the area, shareholders, and the inhabitants in mind.</p>
+                        </div>
+                        <div className="summary-block">
+                            <h4>community planning</h4>
+                            <p>We plan for life, well designed. Our approach to community planning champions convenient, fulfilling, and balanced living and maintaining that standard amist growth. </p>
+                        </div>
+                        <div className="summary-block">
+                            <h4>above average returns</h4>
+                            <p>Our goal is to provide outstanding returns through the unassailable approach of beautiful design, conscientious planning, and efficient  execution.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -268,11 +229,12 @@ const Home = () => {
                     <div className="image-grid-wrapper d-grid align-items-start">                                            
                         <div className="image-block image-block-left overlay bottom-overlay position-relative">
                             <div className="header-block pb-40">
-                                <h3 className="d-flex mb-0" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-offset="100">the source of our experience <img width="" height="" src={downArrow} alt="" /></h3>
+                                <h3 className="d-flex no-wrap mb-0" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-offset="100">the source of our experience <img width="" height="" src={downArrow} alt="" /></h3>
                             </div>                            
-                            <div className="d-flex align-items-center">
-                                <div className="video-block-wrapper pb-10" onMouseEnter={() => handleMouseEnter(0)} onMouseLeave={() => handleMouseLeave(0)}>
-                                    <video className="w-100" muted loop playsInline ref={(el) => (videoRefs.current[0] = el)}>
+                            <div className="video-block-wrapper d-flex align-items-center position-relative">
+                                <img width="" height="" src={miami} alt="" />
+                                <div className="video-block w-100 h-100 position-absolute" onMouseEnter={() => handleMouseEnter(0)} onMouseLeave={() => handleMouseLeave(0)}>
+                                    <video className="cover" muted loop playsInline ref={(el) => (videoRefs.current[0] = el)}>
                                         <source src={miamibeachVideo} type="video/mp4"/>
                                     </video>
                                 </div>
@@ -283,25 +245,31 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="images-block d-grid">
-                            <div className="video-block video-block-1">
-                                <div className="video-block-wrapper pb-30" onMouseEnter={() => handleMouseEnter(1)} onMouseLeave={() => handleMouseLeave(1)}>
-                                    <video className="w-100" muted loop playsInline ref={(el) => (videoRefs.current[1] = el)}>
-                                        <source src={aventuraVideo} type="video/mp4"/>
-                                    </video>
+                            <div className="video-block-wrapper">
+                                <div className="d-flex align-items-center position-relative">
+                                    <img width="" height="" src={aventura} alt="" />
+                                    <div className="video-block w-100 h-100 position-absolute" onMouseEnter={() => handleMouseEnter(1)} onMouseLeave={() => handleMouseLeave(1)}>
+                                        <video className="cover" muted loop playsInline ref={(el) => (videoRefs.current[1] = el)}>
+                                            <source src={aventuraVideo} type="video/mp4"/>
+                                        </video>
+                                    </div>
                                 </div>
-                                <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                    <h4>lifestyle design for the Marina Lofts</h4>
+                                <div className="summary-block pt-40 pb-10" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                                    <h4 className="mb-10">lifestyle design for the Marina Lofts</h4>
                                     <div className="location-block">AVENTURA</div>
-                                </div>
+                                </div>                                
                             </div>
-                            <div className="video-block video-block-2">
-                                <div className="video-block-wrapper pb-30" onMouseEnter={() => handleMouseEnter(2)} onMouseLeave={() => handleMouseLeave(2)}>
-                                    <video className="w-100" muted loop playsInline ref={(el) => (videoRefs.current[2] = el)}>
-                                        <source src={keybiscayneVideo} type="video/mp4"/>
-                                    </video>                                
+                            <div className="video-block-wrapper">
+                                <div className="d-inline-flex align-items-center position-relative sm-w-100">
+                                    <img className="sm-w-100" width="" height="" src={keybiscayne} alt="" />
+                                    <div className="video-block w-100 h-100 position-absolute" onMouseEnter={() => handleMouseEnter(2)} onMouseLeave={() => handleMouseLeave(2)}>
+                                        <video className="cover" muted loop playsInline ref={(el) => (videoRefs.current[2] = el)}>
+                                            <source src={keybiscayneVideo} type="video/mp4"/>
+                                        </video>                                
+                                    </div>
                                 </div>
-                                <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                    <h3>breaking ground in Key Biscayne with the Marquis </h3>
+                                <div className="summary-block pt-40" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                                    <h4 className="mb-10">breaking ground in Key Biscayne with the Marquis </h4>
                                     <div className="location-block">KEY BISCAYNE, FLORDIA</div>
                                 </div>
                             </div>
@@ -374,7 +342,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div id="contact" className="contact-section py-120 m-py-70 hidden-x">
+            <div id="contact" className="contact-section pt-120 m-pt-70 hidden-x">
                 <div className="container">
                     <div className="contact-wrapper d-grid align-items-center">
                         <div className="form-block">
@@ -402,7 +370,7 @@ const Home = () => {
                             <img width="" height="" src={contact} alt="" />                            
                             <div className="summary-block d-flex flex-column justify-content-between position-absolute top-0 w-100 h-100">                               
                                 <div className="bottom-summary w-100" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
-                                    <h3><Link to="mailto:info@iveydevelopments.com">info@iveydevelopments.com</Link></h3>
+                                    <h4><Link to="mailto:info@iveydevelopments.com">info@iveydevelopments.com</Link></h4>
                                     <ul>
                                         <li><Link to="tel:+1-111-1111">+1-111-1111</Link></li>                                        
                                     </ul>
