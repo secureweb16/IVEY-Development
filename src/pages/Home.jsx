@@ -15,7 +15,6 @@ import opportunity2 from "../assets/images/opportunity-2.jpg";
 import opportunity3 from "../assets/images/opportunity-3.jpg";
 import opportunity4 from "../assets/images/opportunity-4.jpg";
 import downArrow from "../assets/images/down-arrow.svg";
-
 import teamProfile from "../assets/images/team-profile.png";
 import contact from "../assets/images/contact.jpg";
 import rightArrow from "../assets/images/right-arrow.svg";
@@ -66,41 +65,17 @@ const Home = () => {
             setIsMailSent(false);
             setIsLoading(false);
         }
-    };  
-
-    const videoRef1 = useRef(null);
-    const handleMouseEnter1 = () => {
-        if (videoRef1.current) {
-            videoRef1.current.play();
-        }
-    };
-    const handleMouseLeave1 = () => {
-        if (videoRef1.current) {
-            videoRef1.current.pause();
-        }
     };
 
-    const videoRef2 = useRef(null);
-    const handleMouseEnter2 = () => {
-        if (videoRef2.current) {
-            videoRef2.current.play();
+    const videoRefs = useRef([]);
+    const handleMouseEnter = (index) => {
+        if (videoRefs.current[index]) {
+            videoRefs.current[index].play();
         }
     };
-    const handleMouseLeave2 = () => {
-        if (videoRef2.current) {
-            videoRef2.current.pause();
-        }
-    };
-
-    const videoRef3 = useRef(null);
-    const handleMouseEnter3 = () => {
-        if (videoRef3.current) {
-            videoRef3.current.play();
-        }
-    };
-    const handleMouseLeave3 = () => {
-        if (videoRef3.current) {
-            videoRef3.current.pause();
+    const handleMouseLeave = (index) => {
+        if (videoRefs.current[index]) {
+            videoRefs.current[index].pause();
         }
     };
  
@@ -157,7 +132,7 @@ const Home = () => {
                 <div className="container">                    
                     <div className="image-grid-wrapper color-light d-grid">
                         <div className="video-block position-relative">
-                            <video className="cover" autoPlay muted loop data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                            <video className="cover" autoPlay muted loop playsInline data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                                 <source src={championVideo} type="video/mp4"/>
                             </video>                            
                             <div className="summary-block sm-center position-absolute">
@@ -188,7 +163,7 @@ const Home = () => {
                         </div>
                         <div className="grid-item grid-item-2">
                             <div className="video-block d-inline-flex align-items-center position-relative h-100">
-                                <video className="cover" autoPlay muted loop data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                                <video className="cover" autoPlay muted loop playsInline data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                                     <source src={luxuryVideo} type="video/mp4"/>
                                 </video> 
                                 <div className="summary-block color-light position-absolute">
@@ -203,7 +178,7 @@ const Home = () => {
             <div className="video-banner-section">
                 <div className="video-block-wrapper position-relative">
                     <div className="video-block ms-auto h-100" ref={videoBannerRef}>
-                        <video className="cover" autoPlay muted loop>
+                        <video className="cover" autoPlay muted loop playsInline>
                             <source src={lifewellVideo} type="video/mp4"/>
                         </video>                        
                     </div>
@@ -296,8 +271,8 @@ const Home = () => {
                                 <h3 className="d-flex mb-0" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-offset="100">the source of our experience <img width="" height="" src={downArrow} alt="" /></h3>
                             </div>                            
                             <div className="d-flex align-items-center">
-                                <div className="video-block-wrapper pb-10" onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1}>
-                                    <video className="w-100" muted loop ref={videoRef1}>
+                                <div className="video-block-wrapper pb-10" onMouseEnter={() => handleMouseEnter(0)} onMouseLeave={() => handleMouseLeave(0)}>
+                                    <video className="w-100" muted loop playsInline ref={(el) => (videoRefs.current[0] = el)}>
                                         <source src={miamibeachVideo} type="video/mp4"/>
                                     </video>
                                 </div>
@@ -309,8 +284,8 @@ const Home = () => {
                         </div>
                         <div className="images-block d-grid">
                             <div className="video-block video-block-1">
-                                <div className="video-block-wrapper pb-30" onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2}>
-                                    <video className="w-100" muted loop ref={videoRef2}>
+                                <div className="video-block-wrapper pb-30" onMouseEnter={() => handleMouseEnter(1)} onMouseLeave={() => handleMouseLeave(1)}>
+                                    <video className="w-100" muted loop playsInline ref={(el) => (videoRefs.current[1] = el)}>
                                         <source src={aventuraVideo} type="video/mp4"/>
                                     </video>
                                 </div>
@@ -320,8 +295,8 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className="video-block video-block-2">
-                                <div className="video-block-wrapper pb-30" onMouseEnter={handleMouseEnter3} onMouseLeave={handleMouseLeave3}>
-                                    <video className="w-100" muted loop ref={videoRef3}>
+                                <div className="video-block-wrapper pb-30" onMouseEnter={() => handleMouseEnter(2)} onMouseLeave={() => handleMouseLeave(2)}>
+                                    <video className="w-100" muted loop playsInline ref={(el) => (videoRefs.current[2] = el)}>
                                         <source src={keybiscayneVideo} type="video/mp4"/>
                                     </video>                                
                                 </div>
