@@ -138,6 +138,9 @@ video{
 .top-0{
     top: 0;
 }
+.start-0{
+    left: 0;
+}
 .bottom-0{
     bottom: 0;
 }
@@ -417,9 +420,9 @@ video{
     height: 250vh;
 }
 .video-banner-section .video-block-wrapper{
-    height: 100vh;
+    height: calc(100vh - 126px);
     position: sticky;
-    top: 0;
+    top: 126px;
 }
 .video-banner-section .video-block{
     transform: scale(0.25);    
@@ -440,6 +443,9 @@ video{
 .video-banner-section .heading-block-2{
     opacity: 0;
     transform: translateY(100px);    
+}
+.video-banner-section video{
+    opacity: 0;
 }
 
 /*---- Image Grid Section ----*/

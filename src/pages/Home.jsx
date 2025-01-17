@@ -4,6 +4,10 @@ import Layout from "./Layout";
 import heroBanner from "../assets/images/home-hero-banner.jpg";
 import luxury from "../assets/images/luxury.jpg";
 import luxury2 from "../assets/images/luxury-2.jpg";
+
+import designed from "../assets/images/designed.jpg";
+
+
 import championVideo from "../assets/videos/champion.mp4";
 import luxuryVideo from "../assets/videos/luxury-video.mp4";
 import lifewellVideo from "../assets/videos/life-well.mp4";
@@ -87,32 +91,38 @@ const Home = () => {
 
     useEffect(() => {
         const el = videoBannerRef.current;
+        if (!el) return; // Ensure the ref is defined
+        const videoEl = el.querySelector('.life-well-video'); // Select the video element
+        if (!videoEl) return; // Ensure the video element exists
+
+        // GSAP animation for video scaling
         gsap.to(el, {
-            scale: 1, 
+            scale: 1,
             ease: "power2.out",
             scrollTrigger: {
                 trigger: el,
                 start: "top center",
                 end: "bottom+=100px",
                 scrub: 1.05,
-                markers: false
-            }
+                markers: false,
+            },
         });
 
-        const tl = gsap.timeline({            
+        // Timeline for heading and video
+        const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: el,
                 start: "top top-=300",
                 end: "bottom center",
                 scrub: true,
-                markers: false
+                markers: false,
             },
         });
 
         tl.to(headingBlock1Ref.current, { opacity: 0, y: -100, duration: 1 }, 0)
-          .to(headingBlock2Ref.current, { opacity: 1, y:0, duration: 1 }, 0);
-
-    }, [])
+          .to(headingBlock2Ref.current, { opacity: 1, y: 0, duration: 1 }, 0)
+          .to(videoEl, { opacity: 1, onStart: () => videoEl.play(), duration: 1 }, 0);
+    }, []);
 
     return (
 
@@ -180,13 +190,14 @@ const Home = () => {
             <div className="video-banner-section">
                 <div className="video-block-wrapper position-relative">
                     <div className="video-block ms-auto h-100" ref={videoBannerRef}>
-                        <video className="cover" autoPlay muted loop playsInline>
+                        <img className="cover" width="" height="" src={designed} alt="" />
+                        <video className="life-well-video cover position-absolute start-0 top-0" muted loop playsInline>
                             <source src={lifewellVideo} type="video/mp4"/>
                         </video>                        
                     </div>
                     <div className="summary-block color-light d-flex justify-content-center align-items-center position-absolute center w-100 h-100">
-                        <div className="heading-block heading-block-1 position-absolute px-20" ref={headingBlock1Ref}>life, well designed.</div>
-                        <div className="heading-block heading-block-2 position-absolute px-20" ref={headingBlock2Ref}>boutique design</div>           
+                        <div className="heading-block heading-block-1 position-absolute px-20" ref={headingBlock1Ref}>we set the foundation for</div>
+                        <div className="heading-block heading-block-2 position-absolute px-20" ref={headingBlock2Ref}>life, well designed.</div>           
                     </div>         
                 </div>
             </div>
