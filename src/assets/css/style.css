@@ -12,6 +12,11 @@
     --color-gray: #A7A39C;
     --color-light-gray: #EDEBE8
 }
+
+html{
+    overflow-x: hidden
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -36,15 +41,15 @@ h1{
     line-height: 65px;
 }
 h2{
-    font-size: 38px;
+    font-size: 28px;
     line-height: 45px;
 }
 h3{
-    font-size: 28px;
+    font-size: 22px;
     line-height: 35px;
 }
 h4{
-    font-size: 22px;
+    font-size: 18px;
     line-height: 25px;
 }
 
@@ -280,6 +285,9 @@ video{
 .d-grid{
     display: grid;
 }
+.column-2{
+    grid-template-columns: 1fr 1fr;
+}
 .column-3{
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -445,6 +453,9 @@ video{
     line-height: 65px;
     transition: all ease 0.4s;
 }
+.video-banner-section .heading-block-1{
+    font-size: 22px;
+}
 .video-banner-section .heading-block-2{
     opacity: 0;
     transform: translateY(100px);    
@@ -466,9 +477,13 @@ video{
     opacity: 0.5;
 }
 .image-grid-section-1 .summary-block{
-    left: 50px;
+    right: 50px;
     top: 50%;    
     transform: translateY(-50%);    
+}
+.image-grid-section-1 .image-block .summary-block{
+    left: 50px;
+    right: auto;
 }
 .image-grid-section-1 .video-block .summary-block{    
     padding-top: 170px;
@@ -495,7 +510,7 @@ video{
 }
 .image-grid-section-2 .summary-block{
     top: 50%;    
-    right: 60px;
+    left: 60px;
     transform: translateY(-50%);    
 }
 .image-grid-section-3 .image-grid-wrapper{
@@ -504,12 +519,13 @@ video{
 .image-grid-section-3 .video-block-wrapper h3{
     max-width: 350px;
 }
-.image-grid-section-3 .header-block h3{
-    column-gap: 30px;
+.image-grid-section-3 .header-block h2{
+    column-gap: 25px;
 }
-.image-grid-section-3 h3 img{
+.image-grid-section-3 h2 img{
     width: auto;
-    max-height: 40px;
+    max-height: 25px;
+    transform: translateY(13px);
 }
 .image-grid-section-3 .image-block-left .summary-block{
     padding: 60px;    
@@ -541,11 +557,26 @@ video{
     height: 200px;
 }
 .opportunity-text-column .d-grid{
+    max-width: 940px;    
     row-gap: 60px;
     column-gap: 60px;
 }
 .opportunity-text-column p{
     max-width: 380px;
+}
+.opportunity-text-column .summary-block{
+    padding: 0 0 0 80px;
+}
+.opportunity-text-column .icon-block{
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(0,0,0,0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
 }
 
 /*---- Team Section ----*/
@@ -570,11 +601,15 @@ video{
 
 /*---- Contact Section ----*/
 .contact-section{
+    height: calc(100vh - 86px);
     border-top: 1px solid rgb(0,0,0,0.2);
 }
 .contact-wrapper{
     grid-template-columns: auto 55%;
     column-gap: 120px;
+}
+.contact-section .form-block{
+    padding: 100px;
 }
 .contact-section .summary-block{
     padding: 80px;
@@ -584,6 +619,9 @@ video{
 }
 .contact-section .overlay:after{
     opacity: 0.5;
+}
+.contact-section .image-block img{
+    z-index: -1;
 }
 
 /*---- Input ----*/
@@ -710,6 +748,9 @@ img[data-aos^=fade][data-aos^=fade]{
     .opportunity-images .image-block{
         height: 160px;
     }
+    .contact-section .form-block{
+        padding: 60px 60px;
+    }
 
 }
 
@@ -779,6 +820,10 @@ img[data-aos^=fade][data-aos^=fade]{
     }
     .d-hide{
         display: block;
+    }
+    .section:not(.video-banner-section){
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
     .site-logo img{
         filter: invert(100%);
@@ -853,6 +898,15 @@ img[data-aos^=fade][data-aos^=fade]{
     .submit-field .submit-button{
         font-size: 20px;
     }
+    .contact-section{
+        height: auto;        
+    }
+    .contact-section .image-block img{
+        position: static;
+    }
+    .contact-section .form-block{
+        padding: 60px 30px;
+    }
 
 }
 
@@ -888,6 +942,9 @@ img[data-aos^=fade][data-aos^=fade]{
     } 
     .sm-w-100{
         width: 100%;
+    }
+    .sm-pt-60{
+        padding-top: 60px;
     }
     .sm-center{
         text-align: center;
@@ -1010,11 +1067,22 @@ img[data-aos^=fade][data-aos^=fade]{
     .opportunity-text-column .d-grid{
         row-gap: 10px;
     }
+    .opportunity-text-column .icon-block{
+        width: 45px;
+        height: 45px;
+    }
+    .opportunity-text-column .summary-block{
+        padding: 0 0 0 65px;
+    }
 
 }
 
 @media(max-width: 360px){
 
+    .m-px-30 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     .container{
         padding: 0 20px;
     }
@@ -1022,14 +1090,8 @@ img[data-aos^=fade][data-aos^=fade]{
         padding-left: 20px;
         padding-right: 20px;
     }
-
-}
-
-@media(max-width: 320px){
-
-    .m-px-30 {
-        padding-left: 20px;
-        padding-right: 20px;
-    }    
+    .contact-section .form-block{
+        padding: 60px 20px;
+    }
 
 }
