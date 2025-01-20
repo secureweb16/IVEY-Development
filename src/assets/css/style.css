@@ -42,7 +42,7 @@ h1{
 }
 h2{
     font-size: 28px;
-    line-height: 45px;
+    line-height: 35px;
 }
 h3{
     font-size: 22px;
@@ -433,9 +433,9 @@ video{
     height: 250vh;
 }
 .video-banner-section .video-block-wrapper{
-    height: calc(100vh - 86px);
+    height: calc(100vh - 82px);
     position: sticky;
-    top: 86px;
+    top: 82px;
 }
 .video-banner-section .video-block{
     transform: scale(0.25);    
@@ -489,34 +489,37 @@ video{
     padding-top: 170px;
 }
 .image-grid-section-1 .video-block{
-    transform: translateY(-90px);
-}
-.image-grid-section-2 .container{
-    max-width: 1100px;
+    transform: translateY(-100px);
 }
 .image-grid-section-2 .grid-item-1{
     row-gap: 25px;
     place-items: end; 
-    transform: translateY(-100px);
-}
-.image-grid-section-2 .grid-item-2{
-    height: calc(100% - 100px);
+    transform: translateY(-110px);
 }
 .image-grid-section-2 .grid-item-1 .image-block{
-    row-gap: 35px;
+    row-gap: 30px;
+}
+.image-grid-section-2 .grid-item-1 h3{
+    margin: 0 0 8px;
 }
 .image-grid-section-2 .grid-item-1 .video-block{
     max-width: 250px;
 }
+.image-grid-section-2 .grid-item-2{
+    height: calc(100% - 110px);
+}
+.image-grid-section-2 .grid-item-2 .video-block{
+    max-width: 500px;
+}
 .image-grid-section-2 .summary-block{
     top: 50%;    
     left: 60px;
-    transform: translateY(-50%);    
+    transform: translateY(calc(-50% - 9px));    
 }
 .image-grid-section-3 .image-grid-wrapper{
     grid-template-columns: 57% auto;
 }
-.image-grid-section-3 .video-block-wrapper h3{
+.image-grid-section-3 .video-block-wrapper h2{
     max-width: 350px;
 }
 .image-grid-section-3 .header-block h2{
@@ -525,7 +528,7 @@ video{
 .image-grid-section-3 h2 img{
     width: auto;
     max-height: 25px;
-    transform: translateY(13px);
+    transform: translateY(9px);
 }
 .image-grid-section-3 .image-block-left .summary-block{
     padding: 60px;    
@@ -601,7 +604,7 @@ video{
 
 /*---- Contact Section ----*/
 .contact-section{
-    height: calc(100vh - 86px);
+    
     border-top: 1px solid rgb(0,0,0,0.2);
 }
 .contact-wrapper{
@@ -989,6 +992,12 @@ img[data-aos^=fade][data-aos^=fade]{
     .image-grid-section-2 .grid-item-1{
         grid-template-columns: 1fr 1fr;
         column-gap: 40px;
+    }
+    .image-grid-section-2 .grid-item-2{
+        height: auto;
+    }
+    .image-grid-section-2 .grid-item-2 .video-block{
+        max-width: 100%;
     }
     .image-grid-section-2 .video-block{
         width: 100%;

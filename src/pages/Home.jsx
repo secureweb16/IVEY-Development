@@ -254,7 +254,7 @@ const Home = () => {
                                     </video>
                                 </div>
                                 <div className="summary-block color-light position-absolute" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
-                                    <h2 className="mb-10">strategic support for the Ritz Carlton Residences</h2>
+                                    <h2 className="pb-10">strategic support for the Ritz Carlton Residences</h2>
                                     <div className="location-block">MIAMI BEACH</div>
                                 </div>
                             </div>
@@ -358,7 +358,7 @@ const Home = () => {
             </div>
 
             <div id="contact" className="section contact-section">
-                <div className="contact-wrapper d-grid align-items-center h-100">
+                <div className="contact-wrapper d-grid align-items-center">
                     <div className="form-block">
                         <h2 className="m-center">contact us</h2>
                         <form className="pt-30" onSubmit={handleSubmit}>
@@ -380,8 +380,8 @@ const Home = () => {
                             </div>
                         </form>
                     </div>
-                    <div className="image-block color-light overlay top-bottom-overlay position-relative h-100">
-                        <img className="cover position-absolute" width="" height="" src={contact} alt="" />                            
+                    <div className="image-block color-light overlay top-bottom-overlay position-relative">
+                        <img className="cover" width="" height="" src={contact} alt="" />                            
                         <div className="summary-block d-flex flex-column justify-content-between position-absolute top-0 w-100 h-100">                               
                             <div className="bottom-summary w-100" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                                 <h3><Link to="mailto:info@iveydevelopments.com">info@iveydevelopments.com</Link></h3>
