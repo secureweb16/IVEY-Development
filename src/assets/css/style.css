@@ -377,6 +377,11 @@ video{
     opacity: 1;
     visibility: visible;
 }
+.header-overlay{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 
 /*---- Blocks ----*/
 .image-block img{
@@ -420,9 +425,9 @@ video{
     height: 250vh;
 }
 .video-banner-section .video-block-wrapper{
-    height: calc(100vh - 126px);
+    height: calc(100vh - 86px);
     position: sticky;
-    top: 126px;
+    top: 86px;
 }
 .video-banner-section .video-block{
     transform: scale(0.25);    
@@ -446,6 +451,7 @@ video{
 }
 .video-banner-section video{
     opacity: 0;
+    transition: all ease 0.2s;
 }
 
 /*---- Image Grid Section ----*/

@@ -4,10 +4,7 @@ import Layout from "./Layout";
 import heroBanner from "../assets/images/home-hero-banner.jpg";
 import luxury from "../assets/images/luxury.jpg";
 import luxury2 from "../assets/images/luxury-2.jpg";
-
 import designed from "../assets/images/designed.jpg";
-
-
 import championVideo from "../assets/videos/champion.mp4";
 import luxuryVideo from "../assets/videos/luxury-video.mp4";
 import lifewellVideo from "../assets/videos/life-well.mp4";
@@ -195,9 +192,9 @@ const Home = () => {
                             <source src={lifewellVideo} type="video/mp4"/>
                         </video>                        
                     </div>
-                    <div className="summary-block color-light d-flex justify-content-center align-items-center position-absolute center w-100 h-100">
+                    <div className="summary-block d-flex justify-content-center align-items-center position-absolute center w-100 h-100">
                         <div className="heading-block heading-block-1 position-absolute px-20" ref={headingBlock1Ref}>we set the foundation for</div>
-                        <div className="heading-block heading-block-2 position-absolute px-20" ref={headingBlock2Ref}>life, well designed.</div>           
+                        <div className="heading-block heading-block-2 color-light position-absolute px-20" ref={headingBlock2Ref}>life, well designed.</div>           
                     </div>         
                 </div>
             </div>
