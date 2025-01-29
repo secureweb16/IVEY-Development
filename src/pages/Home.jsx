@@ -1,12 +1,12 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { Link } from "react-router-dom";
 import Layout from "./Layout";
-import heroBanner from "../assets/images/home-hero-banner.jpg";
+import heroBanner from "../assets/videos/hero-banner.mp4";
+import weSpecialize from "../assets/images/weSpecialize.jpg";
 import luxury from "../assets/images/luxury.jpg";
 import luxury2 from "../assets/images/luxury-2.jpg";
 import designed from "../assets/images/designed.jpg";
-import championVideo from "../assets/videos/champion.mp4";
-import luxuryVideo from "../assets/videos/luxury-video.mp4";
+import enduringValue from "../assets/images/enduring-value.jpg";
 import lifewellVideo from "../assets/videos/life-well.mp4";
 import miamibeachVideo from "../assets/videos/miami-beach.mp4";
 import aventuraVideo from "../assets/videos/aventura.mp4";
@@ -130,8 +130,10 @@ const Home = () => {
             
             <div id="home" className="section hero-section full-screen">
                 <div className="banner-image d-flex justify-content-center align-items-center h-100">
-                    <div className="image-block color-light overlay bottom-overlay ms-auto position-relative w-50 m-w-100 h-100" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                        <img className="cover" width="" height="" src={heroBanner} alt="" />
+                    <div className="image-block color-light overlay bottom-overlay ms-auto position-relative w-50 m-w-100 h-100" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">                        
+                        <video className="cover" autoPlay muted loop playsInline data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                            <source src={heroBanner} type="video/mp4"/>
+                        </video>
                         <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">Ivey Development is a company that helps property owners with assets suitable for development. Instead of selling their properties, owners’ partner with Ivey to maximize their value.</div>
                     </div>
                     <div className="heading-block m-color-light position-absolute">
@@ -144,15 +146,13 @@ const Home = () => {
                 <div className="container">                    
                     <div className="image-grid-wrapper color-light d-grid">
                         <div className="video-block position-relative">
-                            <video className="cover" autoPlay muted loop playsInline data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                                <source src={championVideo} type="video/mp4"/>
-                            </video>                            
+                            <img width="" height="" src={weSpecialize} alt="" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" />
                             <div className="summary-block sm-center position-absolute">
-                                <h3 data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">we specialize in</h3>
+                                <h3 data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000">we specialize in</h3>
                             </div>
                         </div>
                         <div className="image-block position-relative overlay-full" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                            <img width="" height="" src={boutiqueDesign} alt="" />
+                            <img className="cover" width="" height="" src={boutiqueDesign} alt="" />
                             <div className="summary-block sm-center color-light position-absolute">
                                 <h3 data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">boutique design</h3>
                             </div>
@@ -170,14 +170,12 @@ const Home = () => {
                                 <h3 className="end" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">with the aim of creating</h3>
                             </div>
                             <div className="video-block">
-                                <img width="" height="" src={luxury2} alt="" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" />                                
+                                <img width="" height="" src={luxury2} alt="" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" />
                             </div>                            
                         </div>
                         <div className="grid-item grid-item-2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                             <div className="video-block d-inline-flex align-items-center position-relative overlay-full h-100">
-                                <video className="cover" autoPlay muted loop playsInline>
-                                    <source src={luxuryVideo} type="video/mp4"/>
-                                </video> 
+                                <img className="cover" width="" height="" src={enduringValue} alt="" />
                                 <div className="summary-block color-light position-absolute">
                                     <h3 data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">enduring value</h3>
                                 </div>

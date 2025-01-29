@@ -486,7 +486,7 @@ video{
     right: auto;
 }
 .image-grid-section-1 .video-block .summary-block{    
-    padding-top: 170px;
+    padding-top: 197px;
 }
 .image-grid-section-1 .video-block{
     transform: translateY(-100px);
@@ -551,13 +551,19 @@ video{
 .slider-section .header-block{
     max-width: 500px;
 }
+.slider-section .header-block h2{
+    max-width: 80%;
+}
 
 /*---- Opportunties Section ----*/
 .opportunities .header-block h3{
     max-width: 400px;
 }
+.opportunity-images .d-grid{
+    gap: 15px;
+} 
 .opportunity-images .image-block{
-    height: 200px;
+    height: 180px;
 }
 .opportunity-text-column .d-grid{
     max-width: 940px;    
@@ -568,7 +574,7 @@ video{
     max-width: 380px;
 }
 .opportunity-text-column .summary-block{
-    padding: 0 0 0 80px;
+    padding: 5px 0 0 80px;
 }
 .opportunity-text-column .icon-block{
     width: 50px;
@@ -1081,7 +1087,7 @@ img[data-aos^=fade][data-aos^=fade]{
         height: 45px;
     }
     .opportunity-text-column .summary-block{
-        padding: 0 0 0 65px;
+        padding: 5px 0 0 65px;
     }
 
 }
