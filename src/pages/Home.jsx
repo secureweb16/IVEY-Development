@@ -158,7 +158,7 @@ const Home = () => {
                         </video>                        
                     </div>
                     <div className="summary-block d-flex justify-content-center align-items-center position-absolute center w-100 h-100">
-                        <div className="heading-block heading-block-1 position-absolute px-20" ref={headingBlock1Ref}>we set the foundation for</div>
+                        <div className="heading-block heading-block-1 color-light position-absolute px-20" ref={headingBlock1Ref}>we set the foundation for</div>
                         <div className="heading-block heading-block-2 color-light position-absolute px-20" ref={headingBlock2Ref}>life, well designed.</div>           
                     </div>         
                 </div>

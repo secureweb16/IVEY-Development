@@ -431,6 +431,9 @@ video{
     top: 5px;
     left: -120px;    
 }
+.hero-section .cover{
+    object-position: right center;
+}
 
 /*---- Image Banner Section ----*/
 .video-banner-section{
