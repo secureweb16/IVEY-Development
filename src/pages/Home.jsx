@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import { Link } from "react-router-dom";
 import Layout from "./Layout";
 import heroBanner from "../assets/videos/hero-banner.mp4";
@@ -22,56 +22,20 @@ import homeIcon from "../assets/images/home-icon.svg";
 import planningIcon from "../assets/images/planning-icon.svg";
 import returnIcon from "../assets/images/return-icon.svg";
 import downArrow from "../assets/images/down-arrow.svg";
-import teamProfile from "../assets/images/team-profile.png";
-import contact from "../assets/images/contact.jpg";
-import rightArrow from "../assets/images/right-arrow.svg";
+import kirk from "../assets/images/kirk-ivy.png";
+import andy from "../assets/images/andy.png";
+import meilyn from "../assets/images/meilyn.png";
+import daniella from "../assets/images/daniella.png";
+import paul from "../assets/images/paul.png";
+import simone from "../assets/images/simone.png";
+import elena from "../assets/images/elena.png";
 import boutiqueDesign from "../assets/images/boutique-design.jpg";
-import axios from 'axios';
-import config from "../config";
+
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-const Home = () => {
-
-    const [isMailSent, setIsMailSent] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-    });
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();        
-        try {
-            setIsLoading(true);
-            const response = await axios.post(`${config.BASE_URL}/api/admin/send-email`, formData, { withCredentials: true });
-            if (response) {
-                setIsMailSent(true);
-
-                setFormData({
-                    name: '',
-                    email: '',
-                    phone: '',
-                    message: '',
-                });
-            }
-            setIsLoading(false);
-            setTimeout(() => {
-                setIsMailSent(false);
-            }, 5000);
-        } catch (error) {
-            console.error("Error fetching blogs:", error);
-            setIsMailSent(false);
-            setIsLoading(false);
-        }
-    };
+const Home = () => {    
 
     const videoBannerRef = useRef();
     const headingBlock1Ref = useRef();
@@ -244,7 +208,7 @@ const Home = () => {
                             <div className="header-block pb-40">
                                 <h2 className="d-flex no-wrap mb-0" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-offset="100">expertise through experience <img width="" height="" src={downArrow} alt="" /></h2>
                             </div>                            
-                            <div className="video-block-wrapper d-flex align-items-center position-relative">
+                            <div className="video-block-wrapper d-flex align-items-end position-relative">
                                 <img width="" height="" src={miami} alt="" />
                                 <div className="video-block w-100 h-100 position-absolute" onMouseEnter={() => handleMouseEnter(0)} onMouseLeave={() => handleMouseLeave(0)}>
                                     <video className="cover" muted loop playsInline ref={(el) => (videoRefs.current[0] = el)}>
@@ -299,98 +263,70 @@ const Home = () => {
                     <div className="team-items d-grid">
                         <div className="team-item d-grid align-items-center">
                             <div className="image-block">
-                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
+                                <img width="" height="" src={kirk} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
                             </div>
                             <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                <h4>Andy Ashwal</h4>
-                                <div className="position-block">Investment Committee Advisor</div>
+                                <h4>Kirk Ivy</h4>
+                                <div className="position-block">President & Chief Development Officer</div>
                             </div>
                         </div>
                         <div className="team-item d-grid align-items-center">
                             <div className="image-block">
-                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
+                                <img width="" height="" src={andy} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
                             </div>
                             <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                                 <h4>Andy Ashwal</h4>
-                                <div className="position-block">Investment Committee Advisor</div>
+                                <div className="position-block">Investment Committer Advisor</div>
                             </div>
                         </div>
                         <div className="team-item d-grid align-items-center">
                             <div className="image-block">
-                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
+                                <img width="" height="" src={meilyn} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
                             </div>
                             <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                <h4>Andy Ashwal</h4>
-                                <div className="position-block">Investment Committee Advisor</div>
+                                <h4>Meilyn Vega</h4>
+                                <div className="position-block">Lead Architect</div>
                             </div>
                         </div>
                         <div className="team-item d-grid align-items-center">
                             <div className="image-block">
-                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
+                                <img width="" height="" src={daniella} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
                             </div>
                             <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                <h4>Andy Ashwal</h4>
-                                <div className="position-block">Investment Committee Advisor</div>
+                                <h4>Daniella Acuna</h4>
+                                <div className="position-block">Lead Designer</div>
                             </div>
                         </div>
                         <div className="team-item d-grid align-items-center">
                             <div className="image-block">
-                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
+                                <img width="" height="" src={paul} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
                             </div>
                             <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                <h4>Andy Ashwal</h4>
-                                <div className="position-block">Investment Committee Advisor</div>
+                                <h4>Paul Burke</h4>
+                                <div className="position-block">Development Advisor</div>
                             </div>
                         </div>
                         <div className="team-item d-grid align-items-center">
                             <div className="image-block">
-                                <img width="" height="" src={teamProfile} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
+                                <img width="" height="" src={simone} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
                             </div>
                             <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                <h4>Andy Ashwal</h4>
-                                <div className="position-block">Investment Committee Advisor</div>
+                                <h4>Simone Keize</h4>
+                                <div className="position-block">Chief Financial Officer</div>
+                            </div>
+                        </div>
+                        <div className="team-item d-grid align-items-center">
+                            <div className="image-block">
+                                <img width="" height="" src={elena} alt="" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" />
+                            </div>
+                            <div className="summary-block" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                                <h4>Elena Ivy</h4>
+                                <div className="position-block">Development Broker</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div id="contact" className="section contact-section">
-                <div className="contact-wrapper d-grid align-items-center">
-                    <div className="form-block">
-                        <h2 className="m-center">contact us</h2>
-                        <form className="pt-30" onSubmit={handleSubmit}>
-                            <div className="form-field">
-                                <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-                            </div>
-                            <div className="form-field">
-                                <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-                            </div>
-                            <div className="form-field">
-                                <input type="tel" name='phone' placeholder="Phone number" value={formData.phone} onChange={handleChange} />
-                            </div>
-                            <div className="form-field">
-                                <textarea placeholder="Message" name='message' value={formData.message} onChange={handleChange} required></textarea>
-                            </div>
-                            <div className="submit-field end">
-                                {isMailSent && (<><p style={{ color: "#fff" }}>Message Sent!</p></>)}
-                                <button type="submit" className='submit-button d-inline-flex justify-content-end align-items-center' disabled={isLoading}>send <img width="" height="" src={rightArrow} alt="" /></button>
-                            </div>
-                        </form>
-                    </div>
-                    <div className="image-block color-light overlay top-bottom-overlay position-relative">
-                        <img className="cover" width="" height="" src={contact} alt="" />                            
-                        <div className="summary-block d-flex flex-column justify-content-between position-absolute top-0 w-100 h-100">                               
-                            <div className="bottom-summary w-100" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                <h3><Link to="mailto:info@iveydevelopments.com">info@iveydevelopments.com</Link></h3>
-                                <ul>
-                                    <li><Link to="tel:+1-111-1111">+1-111-1111</Link></li>                                        
-                                </ul>
-                            </div>
-                        </div>                            
-                    </div>
-                </div>                
-            </div>
+            </div>            
 
         </Layout>
 

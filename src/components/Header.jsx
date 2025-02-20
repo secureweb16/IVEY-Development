@@ -68,7 +68,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className={`site-header d-flex justify-content-between align-items-center position-fixed px-100 py-50 m-py-30 m-px-30 ${scrolltopdata} w-100`}>
+        <header className={`site-header d-flex justify-content-between align-items-center position-fixed px-100 py-50 m-px-30 ${scrolltopdata} w-100`}>
             <div className="site-logo">
                 <Link className="d-flex align-items-center" to="/" onClick={(e) =>{ e.preventDefault(); scrollToSection('home')}}><img width="" height="" src={siteLogo} alt="" /></Link>
             </div>

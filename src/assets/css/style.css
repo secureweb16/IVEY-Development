@@ -60,7 +60,7 @@ ul{
     list-style: none;
 }
 a{
-    color: #000;
+    color: var(--color-dark);
     text-decoration: none;
 }
 p{
@@ -168,6 +168,9 @@ video{
 .m-auto{
     margin-left: auto;
     margin-right: auto;
+}
+.mt-auto{
+    margin-top: auto;
 }
 .mb-10{
     margin-bottom: 10px;
@@ -397,6 +400,7 @@ video{
 }
 .position-block{
     font-size: 10px;
+    line-height: 15px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
 }
@@ -605,20 +609,19 @@ video{
     overflow: hidden;    
 }
 .team-item h4{
-    margin: 0;
+    margin: 0 0 5px;
 }
 
 /*---- Contact Section ----*/
-.contact-section{
-    
+.contact-section{    
     border-top: 1px solid rgb(0,0,0,0.2);
 }
 .contact-wrapper{
     grid-template-columns: auto 55%;
     column-gap: 120px;
 }
-.contact-section .form-block{
-    padding: 100px;
+.contact-section .contact-block{
+    padding: 140px 100px 40px;
 }
 .contact-section .summary-block{
     padding: 80px;
@@ -644,6 +647,7 @@ video{
     background: none;
     border: none;
     border-bottom: 1px solid rgb(0,0,0,0.2);
+    border-radius: 0;
     font-family: var(--body-font-family);
     font-size: 12px;
     color: #000;
@@ -657,6 +661,8 @@ video{
     padding: 12px 0 0;    
 }
 .submit-field .submit-button{
+    width: auto;
+    padding: 0;
     height: 40px;    
     background: none;
     border: none;    
@@ -708,6 +714,49 @@ input:-webkit-autofill:active{
     font-weight: 400;
     letter-spacing: 1px;    
 }
+.address-block li{
+    margin: 0 0 10px;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+.address-block li i{
+    width: 30px;
+    height: 30px;
+    padding: 8px; 
+    border: 1px solid rgb(0,0,0,0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.address-block li i img{
+    width: 100%;
+}
+.site-footer .menu-block ul{
+    gap: 10px;
+}
+.site-footer .menu-block li{
+    margin: 0;
+    position: relative;
+}
+.site-footer .menu-block li:after{
+    width: 2px;
+    height: 2px;
+    margin: 0 0 0 0;
+    background: #000;
+    border-radius: 50%;
+    display: inline-block;
+    content: "";  
+    transform: translateY(1px);  
+}
+.site-footer .menu-block li:last-child:after{
+    display: none;
+}
+.site-footer .menu-block li a{
+    font-size: 10px;
+    line-height: 10px;
+}
 
 /*---- Animation ----*/
 [data-aos^=fade][data-aos^=fade]{
@@ -756,10 +805,7 @@ img[data-aos^=fade][data-aos^=fade]{
     }
     .opportunity-images .image-block{
         height: 160px;
-    }
-    .contact-section .form-block{
-        padding: 60px 60px;
-    }
+    }   
 
 }
 
@@ -905,16 +951,19 @@ img[data-aos^=fade][data-aos^=fade]{
         padding: 0 0 25px;
     }
     .submit-field .submit-button{
-        font-size: 20px;
+        font-size: 20px;        
     }
     .contact-section{
         height: auto;        
     }
     .contact-section .image-block img{
         position: static;
-    }
-    .contact-section .form-block{
-        padding: 60px 30px;
+    } 
+    .contact-section .contact-block {
+        padding: 60px 40px 20px;
+    }  
+    .contact-block{
+        gap: 80px;
     }
 
 }
@@ -957,6 +1006,13 @@ img[data-aos^=fade][data-aos^=fade]{
     }
     .sm-center{
         text-align: center;
+    }    
+    .header-overlay{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .site-logo img{
+        max-width: 140px;
     }
     .hero-section h1 span.small{
         display: block;     
@@ -1034,8 +1090,8 @@ img[data-aos^=fade][data-aos^=fade]{
 
 }
 
-@media(max-width: 575px){ 
-    
+@media(max-width: 575px){
+        
     .hero-section .summary-block{
         font-size: 16px;
         line-height: 26px;
@@ -1058,8 +1114,7 @@ img[data-aos^=fade][data-aos^=fade]{
         grid-template-columns: 1fr;        
     }
     .team-item{
-        grid-template-columns: 80px auto;
-        justify-content: center;
+        grid-template-columns: 80px auto;        
         column-gap: 20px;
     }
     .team-item .image-block{
@@ -1104,9 +1159,9 @@ img[data-aos^=fade][data-aos^=fade]{
     .px-100{
         padding-left: 20px;
         padding-right: 20px;
-    }
-    .contact-section .form-block{
-        padding: 60px 20px;
-    }
+    }   
+    .contact-section .contact-block {
+        padding: 60px 20px 20px;
+    } 
 
 }
