@@ -458,6 +458,7 @@ video{
     font-family: var(--heading-font-family);
     font-size: var(--font-size-48);
     line-height: 65px;
+    text-shadow: 0 0 20px rgb(0,0,0,0.2);
     transition: all ease 0.4s;
 }
 .video-banner-section .heading-block-1{
