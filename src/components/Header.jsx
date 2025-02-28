@@ -68,31 +68,43 @@ const Header = () => {
     }, []);
 
     return (
-        <header className={`site-header d-flex justify-content-between align-items-center position-fixed px-100 py-50 m-px-30 ${scrolltopdata} w-100`}>
-            <div className="site-logo">
-                <Link className="d-flex align-items-center" to="/" onClick={(e) =>{ e.preventDefault(); scrollToSection('home')}}><img width="" height="" src={siteLogo} alt="" /></Link>
+        <header className={`site-header position-fixed px-100 py-50 sm-py-30 m-px-30 ${scrolltopdata} w-100`}>
+            <div className="header-wrapper d-flex justify-content-center justify-content-between align-items-center position-relative">
+                <div className="left-nav position-absolute start-0">
+                    <ul className="d-flex color-light uppercase">
+                        <li><Link href="">Development</Link></li>
+                        <li><Link href="">Design Buld</Link></li>
+                    </ul>
+                </div>
+                <div className="site-logo">
+                    <Link className="d-flex align-items-center" to="/" onClick={(e) =>{ e.preventDefault(); scrollToSection('home')}}><img width="" height="" src={siteLogo} alt="" /></Link>
+                </div>
+                <div className={`site-nav position-absolute end-0 ${isNavOpen ? "open-menu" : ""}`}>
+                    <ul className="d-flex justify-content-end color-light uppercase">
+                        {menuItems.map(({ name, id }) => (
+                            <li key={id}>
+                                <Link
+                                    to="/"
+                                    className={activeSection === id ? "active position-relative" : "position-relative"}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        scrollToSection(id);
+                                        setActiveSection(id); // Update on click
+                                    }}
+                                >
+                                    {name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>    
+                    <ul className="left-nav left-nav-mobile uppercase d-hide">
+                        <li><Link href="">Development</Link></li>
+                        <li><Link href="">Design Buld</Link></li>
+                    </ul>            
+                    <div className="close-menu position-absolute d-hide" onClick={closeNav}><img width="" height="" src={close} alt="" /></div>
+                </div>
+                <div className="mobile-menu-button position-absolute end-0 d-hide" onClick={toggleNav}><img width="" height="" src={menuToggle} alt="" /></div>
             </div>
-            <div className={`site-nav ${isNavOpen ? "open-menu" : ""}`}>
-                <ul className="d-flex justify-content-end color-light uppercase">
-                    {menuItems.map(({ name, id }) => (
-                        <li key={id}>
-                            <Link
-                                to="/"
-                                className={activeSection === id ? "active position-relative" : "position-relative"}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    scrollToSection(id);
-                                    setActiveSection(id); // Update on click
-                                }}
-                            >
-                                {name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>                
-                <div className="close-menu position-absolute d-hide" onClick={closeNav}><img width="" height="" src={close} alt="" /></div>
-            </div>
-            <div className="mobile-menu-button d-hide" onClick={toggleNav}><img width="" height="" src={menuToggle} alt="" /></div>
         </header>
     );
 };
