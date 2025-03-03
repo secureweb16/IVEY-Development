@@ -72,8 +72,8 @@ const Header = () => {
             <div className="header-wrapper d-flex justify-content-center justify-content-between align-items-center position-relative">
                 <div className="left-nav position-absolute start-0">
                     <ul className="d-flex color-light uppercase">
-                        <li><Link href="">Development</Link></li>
-                        <li><Link href="">Design Buld</Link></li>
+                        <li><Link to="">Development</Link></li>
+                        <li><Link to="https://iveydb.com" target="_blank">Design Buld</Link></li>
                     </ul>
                 </div>
                 <div className="site-logo">
@@ -98,8 +98,8 @@ const Header = () => {
                         ))}
                     </ul>    
                     <ul className="left-nav left-nav-mobile uppercase d-hide">
-                        <li><Link href="">Development</Link></li>
-                        <li><Link href="">Design Buld</Link></li>
+                        <li><Link to="">Development</Link></li>
+                        <li><Link to="https://iveydb.com" target="_blank">Design Buld</Link></li>
                     </ul>            
                     <div className="close-menu position-absolute d-hide" onClick={closeNav}><img width="" height="" src={close} alt="" /></div>
                 </div>

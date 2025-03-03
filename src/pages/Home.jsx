@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
-import { Link } from "react-router-dom";
 import Layout from "./Layout";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from "swiper/modules";
 import heroBanner from "../assets/videos/hero-banner.mp4";
 import weSpecialize from "../assets/images/weSpecialize.jpg";
 import luxury from "../assets/images/luxury.jpg";
@@ -30,7 +31,6 @@ import paul from "../assets/images/paul.png";
 import simone from "../assets/images/simone.png";
 import elena from "../assets/images/elena.png";
 import boutiqueDesign from "../assets/images/boutique-design.jpg";
-
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -98,19 +98,19 @@ const Home = () => {
                         <video className="cover" autoPlay muted loop playsInline data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                             <source src={heroBanner} type="video/mp4"/>
                         </video>
-                        <div className="summary-block position-absolute" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">Ivey Development is a company that helps property owners with assets suitable for development. Instead of selling their properties, owners’ partner with Ivey to maximize their value.</div>
+                        <div className="summary-block m-center position-absolute" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">Ivey Development is a company that helps property owners with assets suitable for development. Instead of selling their properties, owners’ partner with Ivey to maximize their value.</div>
                     </div>
                     <div className="heading-block m-color-light position-absolute">
-                        <h1><span className="small" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">THE ART OF</span><span className="d-inline-block" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">scaling</span> <span className="d-inline-block color-light" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000">‘home’.</span></h1>
+                        <h1><span className="small" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">THE ART OF</span><span className="d-inline-block" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">scaling</span> <span className="d-inline-block color-light" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000"><span className="m-hide">‘</span>home<span className="m-hide">’</span>.</span></h1>
                     </div>
                 </div>
             </div>
 
-            <div className="section image-grid-section image-grid-section-1 pt-60 m-pt-50 pb-50">
+            <div className="section image-grid-section image-grid-section-1 m-hide pt-60 m-pt-50 pb-50">
                 <div className="container">                    
                     <div className="image-grid-wrapper color-light d-grid">
                         <div className="video-block position-relative">
-                            <img width="" height="" src={weSpecialize} alt="" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" />
+                            <img className="sm-w-100" width="" height="" src={weSpecialize} alt="" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" />
                             <div className="summary-block sm-center position-absolute">
                                 <h3 data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000">we specialize in</h3>
                             </div>
@@ -125,7 +125,17 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="section image-grid-section image-grid-section-2">
+            <div className="mobile-image-slider mobile-image-slider-1 center m-color-light d-hide position-relative m-pt-20 m-px-10">                
+                <div className="image-block overlay-full position-relative w-100 h-100">
+                    <img className="cover" width="" height="" src={weSpecialize} alt="" />
+                </div>                
+                <div className="summary-block position-absolute">
+                    <h6 className="uppercase">We Specialize In</h6>
+                    <h2>boutique design</h2>
+                </div>
+            </div>
+
+            <div className="section image-grid-section m-hide image-grid-section-2">
                 <div className="container">                    
                     <div className="image-grid-wrapper d-grid">
                         <div className="grid-item grid-item-1 d-grid">
@@ -146,6 +156,47 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className="mobile-image-slider mobile-image-slider-2 center m-color-light d-hide overlay position-relative m-pt-20">
+                <Swiper className="h-100111"
+                    spaceBetween={5}
+
+                    slidesPerView={1.2}                    
+                    centeredSlides={true}                            
+                    initialSlide={1}
+                    loop={true}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay]}
+                >
+                    <SwiperSlide>
+                        <div className="image-block overlay-full position-relative h-100">
+                            <img className="cover" width="" height="" src={luxury} alt="" />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="image-block overlay-full position-relative h-100">
+                            <img className="cover" width="" height="" src={boutiqueDesign} alt="" />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="image-block overlay-full position-relative h-100">
+                            <img className="cover" width="" height="" src={enduringValue} alt="" />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="image-block overlay-full position-relative h-100">
+                            <img className="cover" width="" height="" src={luxury2} alt="" />
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
+                <div className="summary-block position-absolute">
+                    <h6 className="uppercase">with the aim of creating</h6>
+                    <h2>enduring value</h2>
                 </div>
             </div>
 
@@ -172,12 +223,34 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="opportunity-images images-section">
-                    <div className="d-grid column-4">
-                        <div className="image-block"><img className="cover" width="" height="" src={opportunity1} alt="" /></div>
-                        <div className="image-block"><img className="cover" width="" height="" src={opportunity2} alt="" /></div>
-                        <div className="image-block"><img className="cover" width="" height="" src={opportunity3} alt="" /></div>
-                        <div className="image-block"><img className="cover" width="" height="" src={opportunity4} alt="" /></div>
-                    </div>
+                    <Swiper
+                            spaceBetween={10}
+                            slidesPerView={1.5}
+                            centeredSlides={true}
+                            loop={true}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false,
+                            }}
+                            modules={[Autoplay]}
+                            breakpoints={{                                
+                                1024: { slidesPerView: 3, spaceBetween: 20, loop: true, centeredSlides: false },
+                                1440: { slidesPerView: 4, spaceBetween: 20, centeredSlides: false },
+                            }}
+                    >
+                        <SwiperSlide>
+                            <div className="image-block"><img className="cover" width="" height="" src={opportunity1} alt="" /></div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="image-block"><img className="cover" width="" height="" src={opportunity2} alt="" /></div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="image-block"><img className="cover" width="" height="" src={opportunity3} alt="" /></div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="image-block"><img className="cover" width="" height="" src={opportunity4} alt="" /></div>
+                        </SwiperSlide>                        
+                    </Swiper>                    
                 </div>
                 <div className="opportunity-text-column pt-120 px-100 sm-pt-60">
                     <div className="d-grid column-2 m-auto">
@@ -221,10 +294,10 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="images-block d-grid">
-                            <div className="video-block-wrapper">
+                        <div className="images-block image-block-right sm-color-light d-grid">
+                            <div className="video-block-wrapper position-relative">
                                 <div className="d-flex align-items-center position-relative">
-                                    <img width="" height="" src={aventura} alt="" />
+                                    <img className="sm-w-100" width="" height="" src={aventura} alt="" />
                                     <div className="video-block w-100 h-100 position-absolute" onMouseEnter={() => handleMouseEnter(1)} onMouseLeave={() => handleMouseLeave(1)}>
                                         <video className="cover" muted loop playsInline ref={(el) => (videoRefs.current[1] = el)}>
                                             <source src={aventuraVideo} type="video/mp4"/>
@@ -236,8 +309,8 @@ const Home = () => {
                                     <div className="location-block">AVENTURA</div>
                                 </div>                                
                             </div>
-                            <div className="video-block-wrapper">
-                                <div className="d-inline-flex align-items-center position-relative sm-w-100">
+                            <div className="video-block-wrapper position-relative">
+                                <div className="d-flex align-items-center position-relative sm-w-100">
                                     <img className="sm-w-100" width="" height="" src={keybiscayne} alt="" />
                                     <div className="video-block w-100 h-100 position-absolute" onMouseEnter={() => handleMouseEnter(2)} onMouseLeave={() => handleMouseLeave(2)}>
                                         <video className="cover" muted loop playsInline ref={(el) => (videoRefs.current[2] = el)}>
@@ -255,7 +328,7 @@ const Home = () => {
                 </div>
             </div>              
 
-            <div id="team" className="section team-section py-120 m-pb-70">               
+            <div id="team" className="section team-section py-120 m-pt-70 m-pb-70">               
                 <div className="container">
                     <div className="header-block center pb-100 m-pb-50" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <h2>Our team</h2>
