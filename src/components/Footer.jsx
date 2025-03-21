@@ -16,6 +16,7 @@ const Footer = () => {
         email: '',
         phone: '',
         message: '',
+        subject: "Ivey Developments Contact",
     });
 
     const handleChange = (e) => {
@@ -35,6 +36,7 @@ const Footer = () => {
                     email: '',
                     phone: '',
                     message: '',
+                    subject: "Ivey Developments Contact",
                 });
             }
             setIsLoading(false);
@@ -71,29 +73,23 @@ const Footer = () => {
                                 <div className="submit-field end">
                                     {isMailSent && (<><p style={{ color: "#fff" }}>Message Sent!</p></>)}
                                     <button type="submit" className='submit-button d-inline-flex justify-content-end align-items-center' disabled={isLoading}>send <img width="" height="" src={rightArrow} alt="" /></button>
-                                </div>
+                                </div>                            
                             </form>
                         </div>
                         <div className="address-block mt-auto">
                             <ul className="uppercase">
-                                <li><i><img width="" height="" src={envelope} alt="" /></i><Link to="mailto:info@iveydevelopments.com">info@iveydevelopments.com</Link></li>
-                                <li><i><img width="" height="" src={phone} alt="" /></i><Link to="tel:+1 111 11111">+1 111 11111</Link></li>
-                            </ul>
-                            <div className="menu-block pt-30">
-                                <ul className="d-flex align-items-center uppercase">
-                                    <li><Link to="#">Privacy Policy</Link></li>
-                                    <li><Link to="#">Terms & Conditions</Link></li>
-                                </ul>
-                            </div>
+                                <li><i><img width="" height="" src={envelope} alt="" /></i><Link to="mailto:info@iveydv.com">info@iveydv.com</Link></li>
+                                <li><i><img width="" height="" src={phone} alt="" /></i><Link to="tel:(305) 930 - 6686">(305) 930 - 6686</Link></li>
+                            </ul>                            
                         </div>
                     </div>
                     <div className="image-block color-light overlay top-bottom-overlay position-relative">
                         <img className="cover" width="" height="" src={contact} alt="" />                            
                         <div className="summary-block d-flex flex-column justify-content-between position-absolute top-0 w-100 h-100">                               
                             <div className="bottom-summary w-100" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                <h3><Link to="mailto:info@iveydevelopments.com">info@iveydevelopments.com</Link></h3>
+                                <h3><Link to="mailto:info@iveydv.com">info@iveydv.com</Link></h3>
                                 <ul>
-                                    <li><Link to="tel:+1-111-1111">+1-111-1111</Link></li>                                        
+                                    <li><Link to="tel:(305) 930 - 6686">(305) 930 - 6686</Link></li>                                        
                                 </ul>
                             </div>
                         </div>                            
