@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { Link } from "react-router-dom";
-import contact from "../assets/images/contact.jpg";
+// import contact from "../assets/images/contact.jpg";
+import contact from "../assets/images/Ivey-1VideoBanner.png";
 import rightArrow from "../assets/images/right-arrow.svg";
 import envelope from "../assets/images/envelope.svg";
 import phone from "../assets/images/phone.svg";

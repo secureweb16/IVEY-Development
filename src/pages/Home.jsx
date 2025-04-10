@@ -2,11 +2,13 @@ import React, {useEffect, useRef} from 'react';
 import Layout from "./Layout";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper/modules";
-import heroBanner from "../assets/videos/hero-banner.mp4";
+// import heroBanner from "../assets/videos/hero-banner.mp4";
+import heroBanner from "../assets/videos/IveyBanner.mp4";
 import weSpecialize from "../assets/images/weSpecialize.jpg";
-import luxury from "../assets/images/luxury.jpg";
+import luxury from "../assets/images/amir-hossein.jpg";
 import luxury2 from "../assets/images/luxury-2.jpg";
-import designed from "../assets/images/designed.jpg";
+// import designed from "../assets/images/designed.jpg";
+import designed from "../assets/images/Ivey-1VideoBanner.png";
 import enduringValue from "../assets/images/enduring-value.jpg";
 import lifewellVideo from "../assets/videos/life-well.mp4";
 import miamibeachVideo from "../assets/videos/miami-beach.mp4";
@@ -101,7 +103,7 @@ const Home = () => {
                         <div className="summary-block m-center position-absolute" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">Ivey Development is a company that helps property owners with assets suitable for development. Instead of selling their properties, owners’ partner with Ivey to maximize their value.</div>
                     </div>
                     <div className="heading-block m-color-light position-absolute">
-                        <h1><span className="small" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">THE ART OF</span><span className="d-inline-block" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">scaling</span> <span className="d-inline-block color-light" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000"><span className="m-hide">‘</span>home<span className="m-hide">’</span>.</span></h1>
+                        <h1><span className="small" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">THE ART OF</span><span className="d-inline-block" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">Scaling</span> <span className="d-inline-block color-light" data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000"><span className="m-hide">‘</span>life<span className="m-hide">’</span>.</span></h1>
                     </div>
                 </div>
             </div>
@@ -289,7 +291,7 @@ const Home = () => {
                                     </video>
                                 </div>
                                 <div className="summary-block color-light position-absolute" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
-                                    <h2 className="pb-10">strategic support for the Ritz Carlton Residences</h2>
+                                    <h2 className="pb-10">Strategic support for the Ritz Carlton Residences</h2>
                                     <div className="location-block">MIAMI BEACH</div>
                                 </div>
                             </div>
@@ -305,7 +307,7 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className="summary-block pt-40 pb-10" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                    <h3 className="mb-10">lifestyle design for the Marina Lofts</h3>
+                                    <h3 className="mb-10">Lifestyle design for the Marina Lofts</h3>
                                     <div className="location-block">AVENTURA</div>
                                 </div>                                
                             </div>
@@ -319,8 +321,8 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className="summary-block pt-40" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                                    <h3 className="mb-10">breaking ground in Key Biscayne with the Marquis </h3>
-                                    <div className="location-block">KEY BISCAYNE, FLORDIA</div>
+                                    <h3 className="mb-10">Breaking ground on Biscayne Boulevard with the Marquis</h3>
+                                    <div className="location-block uppercase">Biscayne Boulevard</div>
                                 </div>
                             </div>
                         </div>
